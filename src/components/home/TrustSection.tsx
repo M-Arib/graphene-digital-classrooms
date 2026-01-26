@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { 
   GraduationCap, 
   Building2, 
@@ -40,13 +39,7 @@ export function TrustSection() {
     <section className="py-20 bg-gradient-to-b from-background to-muted overflow-hidden">
       <div className="container mx-auto px-4">
         {/* Trust Badges */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
+        <div className="text-center mb-12 animate-fade-up">
           <span className="text-primary font-semibold text-sm uppercase tracking-wider">
             Trusted by the Best
           </span>
@@ -57,23 +50,12 @@ export function TrustSection() {
             From prestigious CBSE & ICSE schools to leading universities, we've helped 
             transform classrooms across India's most respected educational institutions.
           </p>
-        </motion.div>
+        </div>
 
         {/* Scrolling Badge Carousel */}
         <div className="relative mb-16">
           <div className="flex overflow-hidden">
-            <motion.div
-              className="flex gap-6"
-              animate={{ x: [0, -1000] }}
-              transition={{
-                x: {
-                  repeat: Infinity,
-                  repeatType: "loop",
-                  duration: 20,
-                  ease: "linear",
-                },
-              }}
-            >
+            <div className="flex gap-6 animate-scroll-x">
               {[...trustBadges, ...trustBadges, ...trustBadges].map((badge, index) => (
                 <div
                   key={index}
@@ -87,7 +69,7 @@ export function TrustSection() {
                   </span>
                 </div>
               ))}
-            </motion.div>
+            </div>
           </div>
           {/* Gradient overlays */}
           <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent pointer-events-none" />
@@ -97,13 +79,10 @@ export function TrustSection() {
         {/* Testimonials */}
         <div className="grid md:grid-cols-3 gap-6">
           {testimonials.map((testimonial, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="group relative p-6 rounded-2xl bg-card border border-border hover:border-primary/30 hover:shadow-soft transition-all duration-300"
+              className="group relative p-6 rounded-2xl bg-card border border-border hover:border-primary/30 hover:shadow-soft transition-all duration-300 animate-fade-up"
+              style={{ animationDelay: `${index * 100}ms` }}
             >
               {/* Quote mark */}
               <div className="absolute -top-3 left-6 text-6xl text-primary/20 font-serif">
@@ -125,18 +104,12 @@ export function TrustSection() {
                   <p className="text-sm text-muted-foreground">{testimonial.institution}</p>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
         {/* Stats highlight */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="mt-16 p-8 rounded-3xl gradient-primary relative overflow-hidden"
-        >
+        <div className="mt-16 p-8 rounded-3xl gradient-primary relative overflow-hidden animate-fade-up">
           <div className="absolute inset-0 bg-[url('/placeholder.svg')] bg-center bg-cover opacity-5" />
           <div className="relative z-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
             {[
@@ -145,21 +118,19 @@ export function TrustSection() {
               { value: "10+", label: "Years Experience" },
               { value: "98%", label: "Client Satisfaction" },
             ].map((stat, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                viewport={{ once: true }}
+                className="animate-fade-up"
+                style={{ animationDelay: `${index * 100}ms` }}
               >
                 <p className="font-display text-4xl md:text-5xl font-bold text-primary-foreground mb-2">
                   {stat.value}
                 </p>
                 <p className="text-primary-foreground/70 font-medium">{stat.label}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
