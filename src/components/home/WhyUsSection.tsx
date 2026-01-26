@@ -14,12 +14,12 @@ const reasons = [
   {
     icon: Award,
     title: "Proven Expertise",
-    description: "15+ years of experience in educational technology implementation.",
+    description: "10+ years of experience in educational technology implementation.",
   },
   {
     icon: Shield,
     title: "Trusted Partner",
-    description: "Worked with 500+ institutions across the country.",
+    description: "Worked with 150+ institutions across the country.",
   },
   {
     icon: Headphones,

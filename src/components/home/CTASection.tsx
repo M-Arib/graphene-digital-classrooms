@@ -16,7 +16,7 @@ export function CTASection() {
             Ready to Transform Your Classrooms?
           </h2>
           <p className="text-primary-foreground/80 text-lg mb-10 max-w-2xl mx-auto">
-            Join 500+ educational institutions that have already modernized their 
+            Join 150+ educational institutions that have already modernized their 
             learning environments with Graphene Communication.
           </p>
 
