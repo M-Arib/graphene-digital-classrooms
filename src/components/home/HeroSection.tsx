@@ -60,15 +60,15 @@ export function HeroSection() {
           {/* Stats */}
           <div className="grid grid-cols-3 gap-8 mt-12 pt-8 border-t border-primary-foreground/20 animate-fade-up animation-delay-400">
             <div>
-              <p className="font-display text-3xl font-bold text-secondary">500+</p>
+              <p className="font-display text-3xl font-bold text-secondary">150+</p>
               <p className="text-primary-foreground/60 text-sm mt-1">Schools Transformed</p>
             </div>
             <div>
-              <p className="font-display text-3xl font-bold text-secondary">50K+</p>
+              <p className="font-display text-3xl font-bold text-secondary">10K+</p>
               <p className="text-primary-foreground/60 text-sm mt-1">Students Benefited</p>
             </div>
             <div>
-              <p className="font-display text-3xl font-bold text-secondary">15+</p>
+              <p className="font-display text-3xl font-bold text-secondary">10+</p>
               <p className="text-primary-foreground/60 text-sm mt-1">Years Experience</p>
             </div>
           </div>
