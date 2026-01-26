@@ -8,9 +8,9 @@ import {
 } from "lucide-react";
 
 const trustBadges = [
-  { icon: School, label: "CBSE Affiliated Schools" },
-  { icon: GraduationCap, label: "ICSE Institutions" },
-  { icon: University, label: "State Universities" },
+  { icon: School, label: "Matric Board Schools" },
+  { icon: GraduationCap, label: "Cambridge Schools" },
+  { icon: University, label: "HEC Universities" },
   { icon: Building2, label: "Private Academies" },
   { icon: Award, label: "Award-Winning Schools" },
   { icon: BadgeCheck, label: "Government Schools" },
@@ -20,17 +20,17 @@ const testimonials = [
   {
     quote: "The smart classroom setup has completely transformed how our teachers deliver lessons. Student engagement has increased dramatically.",
     role: "Principal",
-    institution: "Leading CBSE School, Delhi NCR",
+    institution: "Leading School, Lahore",
   },
   {
     quote: "Professional installation, excellent after-sales support, and cutting-edge technology. Highly recommended for any educational institution.",
     role: "Director",
-    institution: "Premier International School, Mumbai",
+    institution: "Premier School, Karachi",
   },
   {
     quote: "We've seen a 40% improvement in student participation since implementing Graphene's smart classroom solutions.",
     role: "Academic Head",
-    institution: "Top-Ranked University, Bangalore",
+    institution: "Top-Ranked University, Islamabad",
   },
 ];
 
@@ -47,8 +47,8 @@ export function TrustSection() {
             Partnered with Renowned Institutions
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            From prestigious CBSE & ICSE schools to leading universities, we've helped 
-            transform classrooms across India's most respected educational institutions.
+            From prestigious Cambridge & Matric schools to leading HEC-recognized universities, 
+            we've helped transform classrooms across Pakistan's most respected educational institutions.
           </p>
         </div>
 
