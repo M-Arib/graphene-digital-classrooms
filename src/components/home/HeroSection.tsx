@@ -64,7 +64,7 @@ export function HeroSection() {
               <p className="text-primary-foreground/60 text-sm mt-1">Schools Transformed</p>
             </div>
             <div>
-              <p className="font-display text-3xl font-bold text-secondary">10K+</p>
+              <p className="font-display text-3xl font-bold text-secondary">100K+</p>
               <p className="text-primary-foreground/60 text-sm mt-1">Students Benefited</p>
             </div>
             <div>
