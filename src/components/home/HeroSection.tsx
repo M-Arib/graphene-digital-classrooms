@@ -29,9 +29,9 @@ export function HeroSection() {
 
           {/* Headline */}
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight mb-6 animate-fade-up animation-delay-100">
-            Building{" "}
-            <span className="text-secondary">Modern Classrooms</span>{" "}
-            for Optimistic Learning
+            Transform Your{" "}
+            <span className="text-secondary">Classrooms</span>{" "}
+            Into Smart Learning Spaces
           </h1>
 
           {/* Subheadline */}

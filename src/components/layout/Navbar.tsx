@@ -2,15 +2,14 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
   { name: "Home", path: "/" },
-  { name: "About Us", path: "/about" },
-  { name: "Vision & Mission", path: "/vision" },
+  { name: "About", path: "/about" },
   { name: "Products", path: "/products" },
   { name: "Smart Classrooms", path: "/smart-classrooms" },
-  { name: "Why Us", path: "/why-us" },
   { name: "Contact", path: "/contact" },
 ];
 
@@ -72,32 +71,36 @@ export function Navbar() {
           ))}
         </nav>
 
-        {/* CTA Button - Desktop */}
-        <div className="hidden lg:block">
+        {/* Right Side - Theme Toggle & CTA */}
+        <div className="hidden lg:flex items-center gap-3">
+          <ThemeToggle />
           <Button asChild variant="default" size="default">
             <Link to="/contact">Get Started</Link>
           </Button>
         </div>
 
         {/* Mobile Menu Button */}
-        <button
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="lg:hidden p-2 rounded-lg hover:bg-accent transition-colors"
-          aria-label="Toggle menu"
-        >
-          {isMobileMenuOpen ? (
-            <X className="w-6 h-6 text-foreground" />
-          ) : (
-            <Menu className="w-6 h-6 text-foreground" />
-          )}
-        </button>
+        <div className="lg:hidden flex items-center gap-2">
+          <ThemeToggle />
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="p-2 rounded-lg hover:bg-accent transition-colors"
+            aria-label="Toggle menu"
+          >
+            {isMobileMenuOpen ? (
+              <X className="w-6 h-6 text-foreground" />
+            ) : (
+              <Menu className="w-6 h-6 text-foreground" />
+            )}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
       <div
         className={cn(
           "lg:hidden absolute top-full left-0 right-0 bg-card/98 backdrop-blur-lg shadow-medium transition-all duration-300 overflow-hidden",
-          isMobileMenuOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+          isMobileMenuOpen ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0"
         )}
       >
         <nav className="container mx-auto px-4 py-4 flex flex-col gap-1">

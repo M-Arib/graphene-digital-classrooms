@@ -1,53 +1,55 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Lightbulb, Target, Users, ArrowRight } from "lucide-react";
+import { Shield, Zap, HeartHandshake, ArrowRight } from "lucide-react";
 
 const features = [
   {
-    icon: Lightbulb,
-    title: "Innovation First",
-    description: "We bring the latest educational technology to transform how students learn and teachers teach.",
+    icon: Shield,
+    title: "Trusted Partner",
+    description: "10+ years serving Pakistan's top educational institutions",
   },
   {
-    icon: Target,
-    title: "Student-Focused",
-    description: "Every solution we provide is designed with student engagement and learning outcomes in mind.",
+    icon: Zap,
+    title: "Modern Technology",
+    description: "Latest smart classroom solutions for enhanced learning",
   },
   {
-    icon: Users,
-    title: "Expert Support",
-    description: "Our team provides comprehensive training and ongoing support for all implementations.",
+    icon: HeartHandshake,
+    title: "Full Support",
+    description: "Installation, training, and ongoing technical assistance",
   },
 ];
 
 export function AboutSection() {
   return (
-    <section className="py-24 bg-background">
+    <section className="py-20 bg-background">
       <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
-          <div>
-            <span className="text-primary font-semibold text-sm uppercase tracking-wider">
-              About Graphene Communication
+          <div className="animate-fade-up">
+            <span className="text-secondary font-semibold text-sm uppercase tracking-wider">
+              About Us
             </span>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mt-3 mb-6">
-              Your Partner in Educational Transformation
+              Your Trusted Ed-Tech Partner
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-8">
-              Graphene Communication is an electronics and education-technology solutions 
-              provider focused on transforming traditional classrooms into modern, smart, 
-              and future-ready learning environments. We work closely with schools, colleges, 
-              and universities to support their transition toward advanced digital education.
+              Graphene Communication transforms traditional classrooms into smart, 
+              future-ready learning environments. We partner with schools, colleges, 
+              and universities across Pakistan.
             </p>
 
-            <div className="space-y-6 mb-8">
+            <div className="grid gap-4 mb-8">
               {features.map((feature, index) => (
-                <div key={index} className="flex gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center flex-shrink-0">
-                    <feature.icon className="w-6 h-6 text-primary" />
+                <div 
+                  key={index} 
+                  className="flex items-center gap-4 p-4 rounded-xl bg-muted/50 hover:bg-muted transition-colors"
+                >
+                  <div className="w-10 h-10 rounded-lg gradient-primary flex items-center justify-center flex-shrink-0">
+                    <feature.icon className="w-5 h-5 text-primary-foreground" />
                   </div>
                   <div>
-                    <h3 className="font-display font-semibold text-foreground mb-1">
+                    <h3 className="font-semibold text-foreground">
                       {feature.title}
                     </h3>
                     <p className="text-muted-foreground text-sm">
@@ -60,40 +62,39 @@ export function AboutSection() {
 
             <Button asChild variant="outline" size="lg">
               <Link to="/about">
-                Read More About Us
+                Learn More
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </Button>
           </div>
 
-          {/* Visual */}
-          <div className="relative">
-            <div className="relative rounded-2xl overflow-hidden shadow-strong">
-              <div className="aspect-[4/3] bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
-                <div className="text-center p-8">
-                  <div className="w-24 h-24 mx-auto mb-6 rounded-full gradient-primary flex items-center justify-center animate-pulse-glow">
-                    <span className="text-primary-foreground font-display font-bold text-4xl">G</span>
-                  </div>
-                  <p className="font-display text-xl font-semibold text-foreground">
-                    Graphene Communication
-                  </p>
-                  <p className="text-muted-foreground mt-2">
-                    Shaping the Future of Education
-                  </p>
+          {/* Stats Card */}
+          <div className="relative animate-fade-up animation-delay-200">
+            <div className="bg-card rounded-2xl shadow-medium border border-border p-8">
+              <div className="text-center mb-8">
+                <div className="w-20 h-20 mx-auto mb-4 rounded-2xl gradient-primary flex items-center justify-center">
+                  <span className="text-primary-foreground font-display font-bold text-3xl">G</span>
                 </div>
+                <p className="font-display text-xl font-semibold text-foreground">
+                  Graphene Communication
+                </p>
+                <p className="text-muted-foreground text-sm mt-1">
+                  Excellence in Educational Technology
+                </p>
               </div>
-            </div>
-
-            {/* Floating Card */}
-            <div className="absolute -bottom-6 -left-6 bg-card rounded-xl p-6 shadow-medium max-w-xs hidden md:block">
-              <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-full gradient-warm flex items-center justify-center">
-                  <span className="text-2xl font-bold text-secondary-foreground">15+</span>
-                </div>
-                <div>
-                  <p className="font-display font-semibold text-foreground">Years of Excellence</p>
-                  <p className="text-muted-foreground text-sm">In Education Technology</p>
-                </div>
+              
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { value: "150+", label: "Schools" },
+                  { value: "100K+", label: "Students" },
+                  { value: "10+", label: "Years" },
+                  { value: "98%", label: "Satisfaction" },
+                ].map((stat, index) => (
+                  <div key={index} className="text-center p-4 rounded-xl bg-muted/50">
+                    <p className="font-display text-2xl font-bold text-primary">{stat.value}</p>
+                    <p className="text-muted-foreground text-xs">{stat.label}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
