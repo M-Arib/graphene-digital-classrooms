@@ -6,14 +6,14 @@ import heroImage from "@/assets/hero-classroom.jpg";
 export function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background Image with Overlay */}
+      {/* Background Image with Strong Overlay */}
       <div className="absolute inset-0">
         <img
           src={heroImage}
           alt="Modern smart classroom"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-foreground/95 via-foreground/80 to-foreground/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/90 to-primary/70" />
       </div>
 
       {/* Content */}
