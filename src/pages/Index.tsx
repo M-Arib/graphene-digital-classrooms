@@ -2,21 +2,25 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { HeroSection } from "@/components/home/HeroSection";
 import { AboutSection } from "@/components/home/AboutSection";
-import { TrustSection } from "@/components/home/TrustSection";
 import { ProductsSection } from "@/components/home/ProductsSection";
-import { TestimonialsSection } from "@/components/home/TestimonialsSection";
+import { FAQSection } from "@/components/home/FAQSection";
 import { CTASection } from "@/components/home/CTASection";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen animate-page-enter">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-[100] bg-primary text-primary-foreground px-4 py-2 rounded-lg font-medium text-sm"
+      >
+        Skip to main content
+      </a>
       <Navbar />
-      <main>
+      <main id="main-content">
         <HeroSection />
-        <TrustSection />
         <AboutSection />
         <ProductsSection />
-        <TestimonialsSection />
+        <FAQSection />
         <CTASection />
       </main>
       <Footer />

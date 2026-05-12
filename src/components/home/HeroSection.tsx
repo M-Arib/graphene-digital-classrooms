@@ -1,17 +1,32 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, PlayCircle } from "lucide-react";
-import heroImage from "@/assets/hero-classroom.jpg";
+import { useCountUp } from "@/hooks/useCountUp";
+import heroImage from "@/assets/hero-classroom.webp";
+
+function StatItem({ target, suffix, label }: { target: number; suffix: string; label: string }) {
+  const { ref, count } = useCountUp(target);
+  return (
+    <div ref={ref}>
+      <p className="font-display text-3xl font-bold text-secondary">
+        {count}{suffix}
+      </p>
+      <p className="text-primary-foreground/60 text-sm mt-1">{label}</p>
+    </div>
+  );
+}
 
 export function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background Image with Overlay - Dark overlay in light mode, Indigo in dark mode */}
+      {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         <img
           src={heroImage}
-          alt="Modern smart classroom"
+          alt="A modern smart classroom with interactive display boards and engaged students"
           className="w-full h-full object-cover"
+          fetchPriority="high"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/85 to-slate-900/60 dark:from-primary/95 dark:via-primary/90 dark:to-primary/70" />
       </div>
@@ -28,7 +43,7 @@ export function HeroSection() {
           </div>
 
           {/* Headline */}
-          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight mb-6 animate-fade-up animation-delay-100">
+          <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight mb-6 animate-fade-up animation-delay-100">
             Transform Your{" "}
             <span className="text-secondary">Classrooms</span>{" "}
             Into Smart Learning Spaces
@@ -36,9 +51,8 @@ export function HeroSection() {
 
           {/* Subheadline */}
           <p className="text-lg text-primary-foreground/80 mb-8 leading-relaxed animate-fade-up animation-delay-200">
-            We partner with schools, colleges, and universities to create smart, 
-            future-ready learning environments that inspire curiosity and enhance 
-            educational outcomes.
+            We partner with schools across Pakistan to create smart,
+            future-ready learning environments that inspire curiosity and enhance educational outcomes.
           </p>
 
           {/* CTA Buttons */}
@@ -57,26 +71,18 @@ export function HeroSection() {
             </Button>
           </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-3 gap-8 mt-12 pt-8 border-t border-primary-foreground/20 animate-fade-up animation-delay-400">
-            <div>
-              <p className="font-display text-3xl font-bold text-secondary">150+</p>
-              <p className="text-primary-foreground/60 text-sm mt-1">Schools Transformed</p>
-            </div>
-            <div>
-              <p className="font-display text-3xl font-bold text-secondary">100K+</p>
-              <p className="text-primary-foreground/60 text-sm mt-1">Students Benefited</p>
-            </div>
-            <div>
-              <p className="font-display text-3xl font-bold text-secondary">10+</p>
-              <p className="text-primary-foreground/60 text-sm mt-1">Years Experience</p>
-            </div>
+          {/* Animated Stats */}
+          <div className="grid grid-cols-3 gap-4 sm:gap-8 mt-12 pt-8 border-t border-primary-foreground/20 animate-fade-up animation-delay-400">
+            <StatItem target={150} suffix="+" label="Schools Transformed" />
+            <StatItem target={100} suffix="K+" label="Students Benefited" />
+            <StatItem target={10} suffix="+" label="Years Experience" />
           </div>
         </div>
       </div>
 
-      {/* Decorative Elements */}
+      {/* Decorative bottom gradient */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
     </section>
   );
 }
+

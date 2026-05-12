@@ -3,31 +3,29 @@ import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { 
-  Shield, 
-  Headphones, 
-  Award, 
-  TrendingUp, 
-  Settings, 
+  Shield,
+  Headphones,
+  Award,
+  TrendingUp,
+  Settings,
   Clock,
-  Users,
-  CheckCircle,
-  ArrowRight 
+  ArrowRight
 } from "lucide-react";
 
 const reasons = [
   {
     icon: Award,
-    title: "15+ Years of Experience",
+    title: "10+ Years of Experience",
     description: "We bring over a decade of expertise in educational technology, understanding the unique needs of institutions.",
-    stat: "15+",
+    stat: "10+",
     statLabel: "Years",
   },
   {
     icon: Shield,
-    title: "Trusted by 500+ Institutions",
-    description: "Schools, colleges, and universities across the country trust us for their technology needs.",
-    stat: "500+",
-    statLabel: "Partners",
+    title: "Proven Quality",
+    description: "Every product and service we deliver is rigorously tested and backed by industry-leading standards.",
+    stat: "100%",
+    statLabel: "Quality",
   },
   {
     icon: Headphones,
@@ -59,23 +57,6 @@ const reasons = [
   },
 ];
 
-const testimonials = [
-  {
-    quote: "Graphene Communication transformed our classrooms completely. Student engagement has increased dramatically since we installed their smart boards.",
-    author: "Dr. Sarah Johnson",
-    role: "Principal, City Public School",
-  },
-  {
-    quote: "Their support team is exceptional. Any time we have an issue, they respond quickly and solve it efficiently.",
-    author: "Prof. Michael Chen",
-    role: "IT Director, State University",
-  },
-  {
-    quote: "The quality of their products and the expertise of their team made our digital transformation seamless.",
-    author: "Mrs. Emily Davis",
-    role: "Administrator, Sunshine Academy",
-  },
-];
 
 const WhyUs = () => {
   return (
@@ -89,7 +70,7 @@ const WhyUs = () => {
               <span className="text-primary font-semibold text-sm uppercase tracking-wider">
                 Why Choose Us
               </span>
-              <h1 className="font-display text-4xl md:text-5xl font-bold text-foreground mt-3 mb-6">
+              <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mt-3 mb-6">
                 Your Trusted Partner in Educational Technology
               </h1>
               <p className="text-muted-foreground text-lg leading-relaxed">
@@ -130,55 +111,10 @@ const WhyUs = () => {
           </div>
         </section>
 
-        {/* Testimonials */}
-        <section className="py-24 bg-muted">
-          <div className="container mx-auto px-4">
-            <div className="text-center max-w-2xl mx-auto mb-16">
-              <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
-                What Our Partners Say
-              </h2>
-              <p className="text-muted-foreground">
-                Hear from the institutions we've helped transform.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8">
-              {testimonials.map((testimonial, index) => (
-                <div
-                  key={index}
-                  className="p-8 rounded-2xl bg-card shadow-soft"
-                >
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(5)].map((_, i) => (
-                      <span key={i} className="text-secondary text-lg">★</span>
-                    ))}
-                  </div>
-                  <p className="text-foreground mb-6 italic">
-                    "{testimonial.quote}"
-                  </p>
-                  <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center">
-                      <Users className="w-6 h-6 text-primary" />
-                    </div>
-                    <div>
-                      <p className="font-display font-semibold text-foreground">
-                        {testimonial.author}
-                      </p>
-                      <p className="text-muted-foreground text-sm">
-                        {testimonial.role}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* CTA */}
         <section className="py-24 bg-background">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto bg-gradient-to-r from-primary to-primary/80 rounded-3xl p-12 text-center shadow-strong">
+            <div className="max-w-4xl mx-auto bg-gradient-to-r from-primary to-primary/80 rounded-3xl p-8 md:p-12 text-center shadow-strong">
               <h2 className="font-display text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
                 Ready to Join Our Partner Network?
               </h2>

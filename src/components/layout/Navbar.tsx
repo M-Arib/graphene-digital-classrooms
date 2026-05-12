@@ -3,13 +3,16 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { Logo } from "@/components/Logo";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
   { name: "Home", path: "/" },
   { name: "About", path: "/about" },
+  { name: "Vision", path: "/vision" },
   { name: "Products", path: "/products" },
   { name: "Smart Classrooms", path: "/smart-classrooms" },
+  { name: "Why Us", path: "/why-us" },
   { name: "Contact", path: "/contact" },
 ];
 
@@ -20,7 +23,7 @@ export function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 80);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -41,16 +44,12 @@ export function Navbar() {
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 group">
-          <div className="w-10 h-10 rounded-lg gradient-primary flex items-center justify-center shadow-soft group-hover:shadow-medium transition-all duration-300">
-            <span className="text-primary-foreground font-display font-bold text-xl">G</span>
-          </div>
-          <span className={cn(
-            "font-display font-bold text-xl transition-colors duration-300",
-            isScrolled ? "text-foreground" : "text-foreground"
-          )}>
-            Graphene
-          </span>
+        <Link
+          to="/"
+          aria-label="Graphene Communication — Home"
+          className="flex items-center group transition-transform hover:scale-[1.02]"
+        >
+          <Logo className="h-10 sm:h-12 w-auto" />
         </Link>
 
         {/* Desktop Navigation */}
@@ -100,7 +99,7 @@ export function Navbar() {
       <div
         className={cn(
           "lg:hidden absolute top-full left-0 right-0 bg-card/98 backdrop-blur-lg shadow-medium transition-all duration-300 overflow-hidden",
-          isMobileMenuOpen ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0"
+          isMobileMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
         )}
       >
         <nav className="container mx-auto px-4 py-4 flex flex-col gap-1">
@@ -126,3 +125,5 @@ export function Navbar() {
     </header>
   );
 }
+
+

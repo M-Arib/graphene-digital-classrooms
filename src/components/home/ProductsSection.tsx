@@ -1,37 +1,8 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Monitor, Tablet, Projector, Speaker, ArrowRight } from "lucide-react";
-import smartBoardImg from "@/assets/smart-board.jpg";
-import displayPanelImg from "@/assets/display-panel.jpg";
-import tabletsImg from "@/assets/tablets-learning.jpg";
-
-const products = [
-  {
-    title: "Smart Boards & Interactive Displays",
-    description: "Transform teaching with touch-enabled displays that make learning interactive and engaging.",
-    icon: Monitor,
-    image: smartBoardImg,
-  },
-  {
-    title: "LED/LCD Display Systems",
-    description: "High-resolution display panels for classrooms, auditoriums, and presentation spaces.",
-    icon: Projector,
-    image: displayPanelImg,
-  },
-  {
-    title: "Educational Tablets & Devices",
-    description: "Kid-friendly tablets and learning devices designed for interactive education.",
-    icon: Tablet,
-    image: tabletsImg,
-  },
-  {
-    title: "Audio-Visual Equipment",
-    description: "Complete AV solutions for classrooms, labs, and auditoriums with crystal-clear sound.",
-    icon: Speaker,
-    image: null,
-  },
-];
+import { ArrowRight } from "lucide-react";
+import { products } from "@/data/products";
 
 export function ProductsSection() {
   return (
@@ -46,7 +17,7 @@ export function ProductsSection() {
             Complete Range of Educational Technology
           </h2>
           <p className="text-muted-foreground">
-            From smart boards to educational tablets, we provide everything needed 
+            From smart boards to educational tablets, we provide everything needed
             to create a modern, engaging learning environment.
           </p>
         </div>
@@ -54,8 +25,8 @@ export function ProductsSection() {
         {/* Products Grid */}
         <div className="grid md:grid-cols-2 gap-6">
           {products.map((product, index) => (
-            <Card 
-              key={index} 
+            <Card
+              key={product.title}
               className="group overflow-hidden border-0 shadow-soft hover:shadow-medium transition-all duration-300"
             >
               <CardContent className="p-0">
@@ -66,6 +37,7 @@ export function ProductsSection() {
                       <img
                         src={product.image}
                         alt={product.title}
+                        loading={index === 0 ? "eager" : "lazy"}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                     ) : (
@@ -86,8 +58,8 @@ export function ProductsSection() {
                     <p className="text-muted-foreground text-sm mb-4">
                       {product.description}
                     </p>
-                    <Link 
-                      to="/products" 
+                    <Link
+                      to="/products"
                       className="inline-flex items-center gap-2 text-primary font-medium text-sm hover:gap-3 transition-all"
                     >
                       Learn More <ArrowRight className="w-4 h-4" />

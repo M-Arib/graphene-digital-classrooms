@@ -19,7 +19,7 @@ const reasons = [
   {
     icon: Shield,
     title: "Trusted Partner",
-    description: "Worked with 150+ institutions across the country.",
+    description: "Worked with 150+ schools across the country.",
   },
   {
     icon: Headphones,

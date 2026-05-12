@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1e1b4b"/>
+      <stop offset="55%" stop-color="#5b2a86"/>
+      <stop offset="100%" stop-color="#e6398b"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="80%" cy="20%" r="60%">
+      <stop offset="0%" stop-color="#f0abfc" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#5b2a86" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <g transform="translate(96 200)" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="800">
+    <text x="0" y="0" font-size="120" fill="#ffffff" letter-spacing="2">GR</text>
+    <text x="225" y="0" font-size="120" fill="#ffffff" letter-spacing="2">PHENE</text>
+    <path d="M178 0 L218 -90 L258 0 L238 0 L218 -45 L198 0 Z" fill="#f0abfc"/>
+    <text x="0" y="100" font-size="56" letter-spacing="9" fill="#f0abfc" font-weight="700">COMMUNICATION</text>
+    <text x="0" y="220" font-size="44" fill="#ffffff" font-weight="600" opacity="0.92">Smart Classroom Solutions for Pakistan</text>
+  </g>
+</svg>

@@ -3,7 +3,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Monitor, Users, Wifi, Zap, CheckCircle, ArrowRight } from "lucide-react";
-import heroImage from "@/assets/hero-classroom.jpg";
+import heroImage from "@/assets/hero-classroom.webp";
 
 const features = [
   {
@@ -43,32 +43,34 @@ const SmartClassrooms = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
-      <main>
-        {/* Hero */}
-        <section className="pt-32 pb-20 relative overflow-hidden">
+      <main id="main-content">
+
+        {/* Hero — matches HeroSection styling */}
+        <section className="pt-32 pb-20 relative overflow-hidden min-h-[520px] flex items-center">
           <div className="absolute inset-0">
             <img
               src={heroImage}
-              alt="Smart Classroom"
+              alt="Smart classroom with interactive display and engaged students"
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-foreground/95 via-foreground/80 to-foreground/40" />
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/85 to-slate-900/60 dark:from-primary/95 dark:via-primary/90 dark:to-primary/70" />
           </div>
-          
+
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-2xl">
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 mb-6">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 mb-6">
                 <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
                 <span className="text-primary-foreground/90 text-sm font-medium">
                   Smart Learning Solutions
                 </span>
-              </span>
-              <h1 className="font-display text-4xl md:text-5xl font-bold text-primary-foreground mt-3 mb-6">
-                Transform Your Classrooms Into Smart Learning Spaces
+              </div>
+              <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-primary-foreground leading-tight mb-6">
+                Transform Your Classrooms Into{" "}
+                <span className="text-secondary">Smart Learning</span> Spaces
               </h1>
               <p className="text-primary-foreground/80 text-lg leading-relaxed mb-8">
-                Create engaging, interactive, and technology-enhanced learning environments 
-                that inspire students and empower educators.
+                Create engaging, interactive, and technology-enhanced learning environments
+                that inspire students and empower educators across Pakistan.
               </p>
               <Button asChild variant="hero" size="xl">
                 <Link to="/contact">
@@ -78,26 +80,32 @@ const SmartClassrooms = () => {
               </Button>
             </div>
           </div>
+
+          {/* Decorative bottom gradient */}
+          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent" />
         </section>
 
         {/* Features */}
         <section className="py-24 bg-background">
           <div className="container mx-auto px-4">
             <div className="text-center max-w-2xl mx-auto mb-16">
-              <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
+              <span className="text-primary font-semibold text-sm uppercase tracking-wider">
+                What We Offer
+              </span>
+              <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mt-3 mb-4">
                 Smart Classroom Features
               </h2>
               <p className="text-muted-foreground">
-                Our smart classroom solutions combine cutting-edge technology with 
+                Our smart classroom solutions combine cutting-edge technology with
                 educational best practices.
               </p>
             </div>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              {features.map((feature, index) => (
+              {features.map((feature) => (
                 <div
-                  key={index}
-                  className="text-center p-6 rounded-2xl bg-card border border-border hover:shadow-soft transition-all duration-300"
+                  key={feature.title}
+                  className="text-center p-6 rounded-2xl bg-card border border-border hover:border-primary/30 hover:shadow-soft transition-all duration-300"
                 >
                   <div className="w-16 h-16 mx-auto rounded-xl gradient-primary flex items-center justify-center mb-5">
                     <feature.icon className="w-8 h-8 text-primary-foreground" />
@@ -105,7 +113,7 @@ const SmartClassrooms = () => {
                   <h3 className="font-display text-lg font-semibold text-foreground mb-2">
                     {feature.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm">
+                  <p className="text-muted-foreground text-sm leading-relaxed">
                     {feature.description}
                   </p>
                 </div>
@@ -119,18 +127,21 @@ const SmartClassrooms = () => {
           <div className="container mx-auto px-4">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div>
-                <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">
+                <span className="text-primary font-semibold text-sm uppercase tracking-wider">
+                  Why It Matters
+                </span>
+                <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mt-3 mb-6">
                   Benefits of Smart Classrooms
                 </h2>
-                <p className="text-muted-foreground mb-8">
-                  Smart classrooms create an environment where students are more engaged, 
+                <p className="text-muted-foreground mb-8 leading-relaxed">
+                  Smart classrooms create an environment where students are more engaged,
                   teachers are more effective, and learning outcomes improve significantly.
                 </p>
 
                 <div className="grid sm:grid-cols-2 gap-4">
-                  {benefits.map((benefit, index) => (
-                    <div key={index} className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-secondary mt-0.5 flex-shrink-0" />
+                  {benefits.map((benefit) => (
+                    <div key={benefit} className="flex items-start gap-3">
+                      <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                       <span className="text-foreground text-sm">{benefit}</span>
                     </div>
                   ))}
@@ -142,15 +153,16 @@ const SmartClassrooms = () => {
                   <img
                     src={heroImage}
                     alt="Smart Classroom in Action"
+                    loading="lazy"
                     className="w-full h-full object-cover"
                   />
                 </div>
-                
+
                 {/* Stats Card */}
-                <div className="absolute -bottom-6 -left-6 bg-card rounded-xl p-6 shadow-medium hidden md:block">
+                <div className="absolute -bottom-6 -left-6 bg-card rounded-xl p-6 shadow-medium hidden md:block border border-border">
                   <div className="flex items-center gap-4">
-                    <div className="w-14 h-14 rounded-full gradient-warm flex items-center justify-center">
-                      <span className="text-xl font-bold text-secondary-foreground">85%</span>
+                    <div className="w-14 h-14 rounded-full gradient-primary flex items-center justify-center flex-shrink-0">
+                      <span className="text-lg font-bold text-primary-foreground">85%</span>
                     </div>
                     <div>
                       <p className="font-display font-semibold text-foreground">Improved Engagement</p>
@@ -163,28 +175,103 @@ const SmartClassrooms = () => {
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="py-24 gradient-primary">
-          <div className="container mx-auto px-4 text-center">
+        {/* Traditional vs Smart Classroom */}
+        <section className="py-24 bg-background">
+          <div className="container mx-auto px-4">
+            <div className="text-center max-w-2xl mx-auto mb-16">
+              <span className="text-primary font-semibold text-sm uppercase tracking-wider">
+                The Difference
+              </span>
+              <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mt-3 mb-4">
+                Traditional vs. Smart Classroom
+              </h2>
+              <p className="text-muted-foreground">
+                See how your institution transforms with our technology
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              {/* Before */}
+              <div className="rounded-2xl border-2 border-border bg-card p-8">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center flex-shrink-0">
+                    <span className="text-muted-foreground font-bold text-lg leading-none">✕</span>
+                  </div>
+                  <h3 className="font-display text-xl font-semibold text-foreground">
+                    Traditional Classroom
+                  </h3>
+                </div>
+                <ul className="space-y-3">
+                  {[
+                    "Static whiteboard & chalk",
+                    "One-way teacher-to-student delivery",
+                    "Paper-heavy, no digital integration",
+                    "No real-time feedback mechanism",
+                    "Equipment breaks, hard to fix",
+                    "Limited content — only textbooks",
+                  ].map((item) => (
+                    <li key={item} className="flex items-center gap-3 text-muted-foreground text-sm">
+                      <span className="w-5 h-5 rounded-full bg-muted flex items-center justify-center text-xs flex-shrink-0">✕</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* After */}
+              <div className="rounded-2xl border-2 border-primary/40 bg-accent/50 p-8 shadow-soft">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-10 h-10 rounded-full gradient-primary flex items-center justify-center flex-shrink-0">
+                    <span className="text-primary-foreground font-bold text-lg leading-none">✓</span>
+                  </div>
+                  <h3 className="font-display text-xl font-semibold text-foreground">
+                    Graphene Smart Classroom
+                  </h3>
+                </div>
+                <ul className="space-y-3">
+                  {[
+                    "4K interactive touch display",
+                    "Collaborative & two-way learning",
+                    "Wireless device integration",
+                    "Live polling & instant assessments",
+                    "Dedicated on-site support team",
+                    "Access to unlimited digital content",
+                  ].map((item) => (
+                    <li key={item} className="flex items-center gap-3 text-foreground text-sm">
+                      <span className="w-5 h-5 rounded-full gradient-primary flex items-center justify-center text-xs flex-shrink-0 text-primary-foreground">✓</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA — matches CTASection styling */}
+        <section className="py-24 relative overflow-hidden">
+          <div className="absolute inset-0 gradient-primary" />
+          <div className="container mx-auto px-4 relative z-10 text-center">
             <h2 className="font-display text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
               Ready to Go Smart?
             </h2>
-            <p className="text-primary-foreground/80 mb-8 max-w-xl mx-auto">
+            <p className="text-primary-foreground/80 mb-10 max-w-xl mx-auto text-lg">
               Let us help you design and implement the perfect smart classroom solution for your institution.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button asChild variant="secondary" size="lg">
+              <Button asChild variant="secondary" size="xl">
                 <Link to="/contact">
                   Get a Free Consultation
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-5 h-5" />
                 </Link>
               </Button>
-              <Button asChild variant="heroOutline" size="lg">
+              <Button asChild variant="heroOutline" size="xl">
                 <Link to="/products">View Products</Link>
               </Button>
             </div>
           </div>
         </section>
+
       </main>
       <Footer />
     </div>
