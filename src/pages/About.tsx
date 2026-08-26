@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Lightbulb, Target, Users, Heart, ArrowRight } from "lucide-react";
 import { Logo } from "@/components/Logo";
+import { BrandsPartnersSection } from "@/components/home/BrandsPartnersSection";
 
 const values = [
   {
@@ -98,6 +99,9 @@ const About = () => {
             </div>
           </div>
         </section>
+
+        {/* Brands & Partners */}
+        <BrandsPartnersSection />
 
         {/* Values Section */}
         <section className="py-24 bg-muted">
