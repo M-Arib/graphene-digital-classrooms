@@ -113,7 +113,7 @@ const partners: BrandItem[] = [
   },
 ];
 
-// ─── Logo Card Component (Clickable → opens company website) ────────────────
+// ─── Logo Card Component ────────────────────────────────────────────────────
 
 function LogoCard({ brand }: { brand: BrandItem }) {
   const content = (() => {
@@ -158,22 +158,24 @@ function LogoCard({ brand }: { brand: BrandItem }) {
       target="_blank"
       rel="noopener noreferrer"
       title={`Visit ${brand.name}`}
-      className="flex-shrink-0 flex items-center justify-center h-20 w-44 rounded-xl bg-card border border-border shadow-soft hover:shadow-medium hover:border-primary/30 hover:-translate-y-1 transition-all duration-300 group px-4 cursor-pointer"
+      className="flex-shrink-0 flex items-center justify-center h-20 w-44 rounded-xl bg-card border border-border shadow-soft hover:shadow-glow-pink hover:border-[#E6398B]/50 hover:-translate-y-1 transition-all duration-300 group px-4 cursor-pointer"
     >
       {content}
     </a>
   );
 }
 
-// ─── Scrolling Marquee ──────────────────────────────────────────────────────
+// ─── Scrolling Marquee (20s Speed + Edge Fades) ─────────────────────────────
 
 function LogoMarquee({ items }: { items: BrandItem[] }) {
   const duplicated = [...items, ...items, ...items, ...items];
 
   return (
-    <div className="relative overflow-hidden">
-      <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
-      <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+    <div className="relative overflow-hidden py-3">
+      {/* Edge Gradient Fades */}
+      <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-background via-background/80 to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-background via-background/80 to-transparent z-10 pointer-events-none" />
+      
       <div className="flex gap-6 animate-marquee w-max">
         {duplicated.map((brand, index) => (
           <LogoCard key={`${brand.name}-${index}`} brand={brand} />
@@ -191,7 +193,7 @@ function LogoGrid({ items }: { items: BrandItem[] }) {
       {items.map((brand, index) => (
         <div
           key={brand.name}
-          className="animate-fade-up"
+          className="animate-fade-up hover:scale-105 transition-transform duration-300"
           style={{ animationDelay: `${index * 100}ms` }}
         >
           <LogoCard brand={brand} />
@@ -205,7 +207,7 @@ function LogoGrid({ items }: { items: BrandItem[] }) {
 
 export function BrandsPartnersSection() {
   return (
-    <section className="py-20 bg-background">
+    <section className="py-20 bg-background relative overflow-hidden">
       <div className="container mx-auto px-4">
         {/* ── Brands We Carry ── */}
         <div className="mb-16">
@@ -230,11 +232,11 @@ export function BrandsPartnersSection() {
 
         {/* ── Divider ── */}
         <div className="flex items-center gap-4 max-w-xs mx-auto mb-16">
-          <div className="flex-1 h-px bg-border" />
-          <span className="text-muted-foreground text-xs uppercase tracking-widest font-medium">
+          <div className="flex-1 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+          <span className="text-muted-foreground text-xs uppercase tracking-widest font-semibold px-2 py-0.5 rounded-full bg-accent">
             &amp;
           </span>
-          <div className="flex-1 h-px bg-border" />
+          <div className="flex-1 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
         </div>
 
         {/* ── Partners ── */}
@@ -261,3 +263,4 @@ export function BrandsPartnersSection() {
     </section>
   );
 }
+export default BrandsPartnersSection;

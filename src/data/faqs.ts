@@ -15,14 +15,14 @@ export const faqs = [
       "We supply interactive smart boards, LED/LCD display panels, educational tablets, audio-visual systems, wireless presentation systems, and smart lighting solutions — everything needed for a complete smart learning environment.",
   },
   {
-    question: "Do you offer teacher training with the setup?",
-    answer:
-      "Absolutely. Every installation includes hands-on training sessions for teachers and IT staff to ensure they are confident and comfortable using all the new technology from day one.",
-  },
-  {
     question: "Can you provide solutions for universities and colleges?",
     answer:
       "Yes. We work with institutions of all sizes — from primary schools to universities. We design custom solutions tailored to lecture halls, labs, seminar rooms, and administrative spaces.",
+  },
+  {
+    question: "Do you participate in government, institutional, and private tenders?",
+    answer:
+      "Yes, Graphene Communication actively participates in public and private sector tenders across Pakistan. We provide complete technical compliance documentation, Manufacturer Authorization Forms (MAFs), NTN/GST verified billing, and long-term on-site service level agreements (SLAs) for universities, government education boards, and private school systems.",
   },
   {
     question: "How can I get a quote or schedule a demo?",
