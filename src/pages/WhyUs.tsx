@@ -36,10 +36,10 @@ const reasons = [
   },
   {
     icon: Headphones,
-    title: "24/7 Dedicated Local SLA Support",
-    description: "Our dedicated technical engineering teams provide rapid on-site troubleshooting, spare parts, and regular preventative servicing.",
-    stat: "24/7",
-    statLabel: "Live Support",
+    title: "Support Available",
+    description: "Our dedicated technical engineering teams provide on-site troubleshooting, spare parts, and regular preventative servicing.",
+    stat: "SLA",
+    statLabel: "Support",
     gradient: "from-[#E6398B] to-[#F0ABFC]",
   },
   {
@@ -60,10 +60,10 @@ const reasons = [
   },
   {
     icon: Clock,
-    title: "Fast 48-Hour Deployment",
-    description: "Streamlined installation processes ensure minimal classroom downtime, scheduled during weekends and off-hours.",
-    stat: "2-5",
-    statLabel: "Days Deploy",
+    title: "Fast Deployment",
+    description: "Streamlined installation processes ensure minimal classroom downtime, scheduled flexibly to suit your institution's calendar.",
+    stat: "Fast",
+    statLabel: "Deploy",
     gradient: "from-[#E6398B] to-[#5B2A86]",
   },
 ];

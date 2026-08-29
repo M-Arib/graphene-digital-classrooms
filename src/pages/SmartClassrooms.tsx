@@ -140,12 +140,12 @@ function InteractiveClassroomTour() {
     },
     {
       id: "stem",
-      title: "STEM Robotics & Sensor Lab",
+      title: "STEM Robotics & Student Devices",
       x: "30%",
       y: "75%",
       icon: Bot,
-      description: "Hands-on Bee-Bot coding robots and SenseDisc multi-sensor experiment stations for interactive science & math classes.",
-      specs: ["200-Step Memory", "Real-Time Sensor Graphing", "iOS/Android/Win"],
+      description: "Hands-on Bee-Bot early coding robots, drop-proof educational tablets, and charging carts for interactive science & math classes.",
+      specs: ["200-Step Memory", "Tactile Directional Coding", "Kid-Safe Tablets"],
     },
   ];
 

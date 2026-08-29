@@ -5,16 +5,11 @@ import {
   Speaker,
   Bot,
   BatteryCharging,
-  Microscope,
   Camera,
-  Wifi,
-  Lightbulb,
   Tv,
 } from "lucide-react";
-import smartBoardImg from "@/assets/smart-board.webp";
 import tabletsImg from "@/assets/tablets-learning.webp";
 import beebotImg from "@/assets/beebot.jpg";
-import probotImg from "@/assets/probot.png";
 import lightproImg from "@/assets/lightpro.png";
 import quantumLaserImg from "@/assets/quantum-laser.png";
 import quantumLedImg from "@/assets/quantum-led.jpg";
@@ -23,12 +18,9 @@ import dvledDirectViewImg from "@/assets/dvled-directview.png";
 import dvledPosterImg from "@/assets/dvled-poster.png";
 import dvledFoldableImg from "@/assets/dvled-foldable.png";
 import jtouchPanelImg from "@/assets/jtouch-panel.png";
-import chargingCartImg from "@/assets/charging-cart.jpg";
-import sensediscImg from "@/assets/sensedisc.jpg";
-import visualizerImg from "@/assets/visualizer.jpg";
+import chargingCartImg from "@/assets/charging-cart.png";
+import visualizerImg from "@/assets/visualizer.png";
 import audioSystemImg from "@/assets/audio-system.jpg";
-import wirelessSystemImg from "@/assets/wireless-system.jpg";
-import smartLightingImg from "@/assets/smart-lighting.jpg";
 
 export type ProductCategory = "projectors" | "displays" | "interactive" | "edtech";
 
@@ -37,13 +29,13 @@ export interface Product {
   category: ProductCategory;
   categoryLabel: string;
   name: string;
-  type: string; // Sub-category / type
+  type: string;
   description: string;
   icon: any;
   image: string | null;
   features: string[];
-  badge?: string; // "Flagship", "New", "Premium", "STEM", "Innovation", etc.
-  featured: boolean; // For home page showcase
+  badge?: string;
+  featured: boolean;
   specs?: { label: string; value: string }[];
   productLink?: string;
 }
@@ -70,7 +62,7 @@ export const productCategories: { id: ProductCategory; label: string; descriptio
   {
     id: "edtech",
     label: "EdTech & Innovation Lab",
-    description: "STEM robotics, Bee-Bot early coding, student tablets, charging carts, science sensors, and classroom AV.",
+    description: "STEM robotics, Bee-Bot early coding, student tablets, charging storage carts, 4K visualizers, and classroom AV.",
     icon: Bot,
   },
 ];
@@ -337,29 +329,6 @@ export const products: Product[] = [
     ],
   },
   {
-    id: "pro-bot",
-    category: "edtech",
-    categoryLabel: "EdTech & Innovation Lab",
-    name: "Pro-Bot Advanced Floor Robot",
-    type: "Intermediate STEM & Robotics",
-    description: "Advanced vehicle robot with built-in LCD screen and numeric keypad. Supports on-board Logo coding, route geometry drawing with felt pens, and light/bumper sensors.",
-    icon: Bot,
-    image: probotImg,
-    badge: "Robotics",
-    featured: false,
-    features: [
-      "On-Board LCD Screen & Tactile Programming Keypad",
-      "Pen Mechanism for Geometric Shape Drawing",
-      "Front and Rear Bumper Collision Sensors",
-      "Programmable Headlights and Sound Synthesizer",
-    ],
-    specs: [
-      { label: "Target Age", value: "Ages 8 to 14 (Middle School STEM)" },
-      { label: "Programming", value: "Logo syntax & arrow button sequences" },
-      { label: "Sensors", value: "Light sensor, sound sensor, dual bumpers" },
-    ],
-  },
-  {
     id: "charging-storage-carts",
     category: "edtech",
     categoryLabel: "EdTech & Innovation Lab",
@@ -380,29 +349,6 @@ export const products: Product[] = [
       { label: "Capacity", value: "32–40 Units (Tablets, Laptops, Chromebooks)" },
       { label: "Power Output", value: "Smart USB-C Fast Charge / AC Outlets" },
       { label: "Cooling", value: "Ventilated Mesh with Quiet Fans" },
-    ],
-  },
-  {
-    id: "sensedisc-stem-lab",
-    category: "edtech",
-    categoryLabel: "EdTech & Innovation Lab",
-    name: "SenseDisc All-in-One STEM Science Lab",
-    type: "Digital Science Experimentation",
-    description: "Compact, disc-shaped multi-sensor experimental system integrating physics, chemistry, biology, and environmental sensors for hands-on digital science labs.",
-    icon: Microscope,
-    image: sensediscImg,
-    badge: "Innovation",
-    featured: false,
-    features: [
-      "Integrated Sensor Array (Temp, Barometer, Accelerometer, GPS)",
-      "Wireless Bluetooth Real-Time Data Streaming to Tablets & PCs",
-      "Preloaded Experiments for Physics, Chemistry & Biology",
-      "Instant Export to Excel, Graph Plotting, and Lab Report PDF",
-    ],
-    specs: [
-      { label: "Sensors", value: "Up to 10 Built-in Sensors" },
-      { label: "Sampling Rate", value: "Up to 100,000 samples/sec" },
-      { label: "OS Compatibility", value: "Windows, Android, iOS, macOS" },
     ],
   },
   {
@@ -449,52 +395,6 @@ export const products: Product[] = [
       { label: "Power Output", value: "60W - 120W RMS" },
       { label: "Wireless Range", value: "30 Meters" },
       { label: "Frequency Response", value: "50Hz - 20kHz" },
-    ],
-  },
-  {
-    id: "wireless-presentation-systems",
-    category: "edtech",
-    categoryLabel: "EdTech & Innovation Lab",
-    name: "Wireless Presentation & Collaboration Systems",
-    type: "Wireless Screen Mirroring",
-    description: "Dongle-free and app-based wireless casting hubs allowing multiple students and teachers to share screens simultaneously with touch-back control.",
-    icon: Wifi,
-    image: wirelessSystemImg,
-    badge: "Zero Cables",
-    featured: false,
-    features: [
-      "Up to 4 Screen Split Simultaneous Display",
-      "Touch-Back Control on Interactive Panels",
-      "Supports AirPlay, Miracast, Google Cast, and USB Buttons",
-      "Enterprise WPA2/WPA3 Network Security",
-    ],
-    specs: [
-      { label: "Output Resolution", value: "4K UHD @ 60Hz" },
-      { label: "Simultaneous Streams", value: "4 Screens (Split View)" },
-      { label: "Latency", value: "< 100ms" },
-    ],
-  },
-  {
-    id: "smart-lighting-solutions",
-    category: "edtech",
-    categoryLabel: "EdTech & Innovation Lab",
-    name: "Intelligent Smart Lighting Solutions",
-    type: "Circadian Classroom Lighting",
-    description: "Adaptive glare-free LED lighting systems that adjust color temperature and brightness according to natural sunlight and classroom activities.",
-    icon: Lightbulb,
-    image: smartLightingImg,
-    badge: "Eye Comfort",
-    featured: false,
-    features: [
-      "Circadian Rhythm Tuning (Exam Mode, Presentation Mode, Focus)",
-      "Zero-Flicker & Low Blue Light RG0 Eye Safety Certified",
-      "Daylight Harvesting Sensors for 60% Energy Savings",
-      "Centralized Wall Touch Panel and App Control",
-    ],
-    specs: [
-      { label: "CCT Range", value: "3,000K – 6,500K Tunable White" },
-      { label: "CRI", value: "Ra > 90 High Color Accuracy" },
-      { label: "UGR", value: "< 16 Anti-Glare Rating" },
     ],
   },
 ];

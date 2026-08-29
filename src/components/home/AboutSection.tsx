@@ -35,7 +35,7 @@ export function AboutSection() {
     {
       year: "2021",
       title: "STEM & Robotics Launch",
-      description: "Introduced Bee-Bot, Pro-Bot, and SenseDisc multi-sensor science lab stations for hands-on modern STEM curriculums.",
+      description: "Introduced Bee-Bot early coding robots, student learning tablets, and 4K visualizers for hands-on STEM curriculums.",
       badge: "Innovation",
     },
     {

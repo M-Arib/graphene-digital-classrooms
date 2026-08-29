@@ -148,37 +148,23 @@ const About = () => {
               </p>
             </div>
 
-            <div className="grid sm:grid-cols-2 gap-8 max-w-2xl mx-auto">
-              {[
-                {
-                  name: "Muhammad Mohsen Alam",
-                  role: "Founder & CEO",
-                  initials: "MA",
-                  bio: "Visionary leader and founder of Graphene Communication, driving the mission to modernize Pakistan's classrooms through cutting-edge educational technology.",
-                },
-                {
-                  name: "Muhammad Arib",
-                  role: "General Manager",
-                  initials: "MA",
-                  bio: "Leads day-to-day operations and ensures every client partnership delivers exceptional results and seamless implementation.",
-                },
-              ].map((member, i) => (
-                <div
-                  key={i}
-                  className="group text-center p-8 rounded-2xl bg-card border border-border hover:border-primary/30 hover:shadow-medium transition-all duration-300"
-                >
-                  <div className="w-20 h-20 rounded-full gradient-primary flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform duration-300 shadow-soft">
-                    <span className="text-primary-foreground font-display font-bold text-2xl">
-                      {member.initials}
-                    </span>
-                  </div>
-                  <h3 className="font-display font-semibold text-foreground text-lg mb-1">
-                    {member.name}
-                  </h3>
-                  <p className="text-primary text-sm font-medium mb-3">{member.role}</p>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{member.bio}</p>
+            <div className="max-w-md mx-auto">
+              <div className="group text-center p-8 sm:p-10 rounded-3xl bg-card border border-border hover:border-primary/40 hover:shadow-strong transition-all duration-300">
+                <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-[#5B2A86] via-[#8A3BB8] to-[#E6398B] flex items-center justify-center mx-auto mb-6 group-hover:scale-105 transition-transform duration-300 shadow-glow-purple">
+                  <span className="text-white font-display font-extrabold text-2xl">
+                    MA
+                  </span>
                 </div>
-              ))}
+                <h3 className="font-display font-bold text-foreground text-xl mb-1">
+                  Muhammad Mohsen Alam
+                </h3>
+                <p className="text-[#E6398B] text-xs font-mono font-bold uppercase tracking-wider mb-4">
+                  Founder & CEO
+                </p>
+                <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed">
+                  Visionary leader and founder of Graphene Communication since 2014, driving the mission to modernize Pakistan's classrooms through cutting-edge educational hardware and dedicated local support.
+                </p>
+              </div>
             </div>
           </div>
         </section>
