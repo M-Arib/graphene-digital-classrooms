@@ -81,10 +81,10 @@ const Privacy = () => {
                 If you have any questions about this Privacy Policy, please
                 contact us at{" "}
                 <a
-                  href="mailto:info@graphenecommunication.com"
+                  href="mailto:mohsen.alam@yellow-wombat-705667.hostingersite.com"
                   className="text-primary hover:underline"
                 >
-                  info@graphenecommunication.com
+                  mohsen.alam@yellow-wombat-705667.hostingersite.com
                 </a>{" "}
                 or call{" "}
                 <a

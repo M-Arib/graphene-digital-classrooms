@@ -92,10 +92,10 @@ const Terms = () => {
               <p className="text-muted-foreground leading-relaxed">
                 For any questions regarding these terms, please contact us at{" "}
                 <a
-                  href="mailto:info@graphenecommunication.com"
+                  href="mailto:mohsen.alam@yellow-wombat-705667.hostingersite.com"
                   className="text-primary hover:underline"
                 >
-                  info@graphenecommunication.com
+                  mohsen.alam@yellow-wombat-705667.hostingersite.com
                 </a>
                 .
               </p>

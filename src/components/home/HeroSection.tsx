@@ -8,21 +8,8 @@ import { AnimatedStats } from "@/components/animations/AnimatedStats";
 import { Sparkles, ArrowRight, Play, Compass, ShieldCheck } from "lucide-react";
 
 export function HeroSection() {
-  const headlineLine1 = "Transform Classrooms Into";
-  const headlineLine2 = "Smart Learning Spaces";
-
-  const letterVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: 1.8 + i * 0.04,
-        duration: 0.5,
-        ease: [0.2, 0.65, 0.3, 0.9],
-      },
-    }),
-  };
+  const line1Words = ["Transforming", "Classrooms", "Into"];
+  const line2Words = ["Smart", "Learning", "Spaces"];
 
   return (
     <section className="relative min-h-screen pt-32 pb-20 flex flex-col justify-center overflow-hidden bg-background text-foreground">
@@ -41,7 +28,7 @@ export function HeroSection() {
             <motion.div
               initial={{ opacity: 0, scale: 0.85, y: -20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.2, ease: "easeOut" }}
+              transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
               className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-card/80 dark:bg-[#0F0F1A]/80 backdrop-blur-xl border border-[#E6398B]/30 shadow-glow-pink mb-6"
             >
               <span className="relative flex h-2.5 w-2.5">
@@ -53,100 +40,84 @@ export function HeroSection() {
               </span>
             </motion.div>
 
-            {/* Staggered Animated Headline */}
-            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.08] text-foreground mb-6">
-              <span className="block">
-                {headlineLine1.split("").map((char, index) => (
-                  <motion.span
-                    key={index}
-                    custom={index}
-                    initial="hidden"
-                    animate="visible"
-                    variants={letterVariants}
-                    className="inline-block"
-                  >
-                    {char === " " ? "\u00A0" : char}
-                  </motion.span>
+            {/* Formal, Correctly Formatted & Wrapped Headline (No Mid-Word Breaks) */}
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[64px] font-extrabold tracking-tight leading-[1.15] text-foreground mb-6"
+            >
+              <span className="inline-block">
+                {line1Words.map((word, idx) => (
+                  <span key={idx} className="inline-block whitespace-nowrap mr-3.5">
+                    {word}
+                  </span>
                 ))}
               </span>
-              <span className="block mt-1 bg-clip-text text-transparent bg-gradient-to-r from-[#5B2A86] via-[#E6398B] to-[#F0ABFC] animate-gradient-shift">
-                {headlineLine2.split("").map((char, index) => (
-                  <motion.span
-                    key={index}
-                    custom={index + headlineLine1.length}
-                    initial="hidden"
-                    animate="visible"
-                    variants={letterVariants}
-                    className="inline-block"
-                  >
-                    {char === " " ? "\u00A0" : char}
-                  </motion.span>
+              <span className="block mt-1.5 bg-clip-text text-transparent bg-gradient-to-r from-[#5B2A86] via-[#E6398B] to-[#F0ABFC] animate-gradient-shift">
+                {line2Words.map((word, idx) => (
+                  <span key={idx} className="inline-block whitespace-nowrap mr-3.5">
+                    {word}
+                  </span>
                 ))}
               </span>
-            </h1>
+            </motion.h1>
 
-            {/* Subheadline with subtle float & fade */}
+            {/* Subheadline */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 3.2 }}
-              className="text-lg sm:text-xl text-muted-foreground max-w-2xl mb-8 leading-relaxed font-normal"
+              transition={{ duration: 0.8, delay: 0.8 }}
+              className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-2xl mb-8 leading-relaxed font-normal"
             >
-              Since 2014, Graphene Communication has empowered <strong className="text-foreground font-semibold">150+ schools</strong> and <strong className="text-foreground font-semibold">100,000+ students</strong> with interactive smart boards, 4K displays, robotics kits, and turnkey smart classroom ecosystems.
+              Since 2014, Graphene Communication has empowered <strong className="text-foreground font-semibold">150+ schools</strong> and <strong className="text-foreground font-semibold">100,000+ students</strong> across Pakistan with 4K interactive touch panels, laser projectors, STEM robotics, and turnkey digital learning spaces.
             </motion.p>
 
             {/* Glass-morphism CTA Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 4.5 }}
-              className="flex flex-wrap items-center gap-4"
+              transition={{ duration: 0.8, delay: 1.0 }}
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto"
             >
-              <Link to="/smart-classrooms">
-                <GlassButton variant="primary" showArrow className="px-8 py-4 text-base">
-                  Explore Smart Classrooms
+              <Link to="/contact">
+                <GlassButton variant="primary" showArrow className="w-full sm:w-auto text-sm sm:text-base py-3.5 px-7">
+                  Schedule Free On-Site Demo
                 </GlassButton>
               </Link>
-
-              <Link to="/products">
-                <GlassButton variant="secondary" className="px-7 py-4 text-base">
-                  <Compass className="w-5 h-5 text-[#E6398B]" />
-                  View All Products
+              <Link to="/smart-classrooms">
+                <GlassButton variant="secondary" className="w-full sm:w-auto text-sm sm:text-base py-3.5 px-7">
+                  Explore 3D Virtual Tour
                 </GlassButton>
               </Link>
             </motion.div>
 
-            {/* Trust badge icons */}
+            {/* Trust Badges */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 5.2 }}
-              className="flex items-center gap-6 mt-8 pt-6 border-t border-border/70 text-xs text-muted-foreground"
+              transition={{ duration: 1, delay: 1.2 }}
+              className="flex items-center gap-6 mt-8 pt-6 border-t border-border/50 text-xs text-muted-foreground"
             >
-              <div className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-emerald-500" />
-                <span>Authorized National Distributor</span>
+              <div className="flex items-center gap-1.5">
+                <ShieldCheck className="w-4 h-4 text-[#E6398B]" />
+                <span>3-Year Warranty & SLA</span>
               </div>
-              <div className="flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-[#E6398B]" />
-                <span>Full Turnkey Installation</span>
+              <div className="flex items-center gap-1.5">
+                <Sparkles className="w-4 h-4 text-[#5B2A86] dark:text-[#F0ABFC]" />
+                <span>PPRA & Tender Verified</span>
               </div>
             </motion.div>
           </div>
 
-          {/* ── Right Column: 3D Floating Tech Elements ── */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9, x: 40 }}
-            animate={{ opacity: 1, scale: 1, x: 0 }}
-            transition={{ duration: 1, delay: 3.8, ease: "easeOut" }}
-            className="lg:col-span-5 relative flex items-center justify-center"
-          >
+          {/* ── Right Column: Interactive 3D Showcase ── */}
+          <div className="lg:col-span-5 flex items-center justify-center relative">
             <Floating3D />
-          </motion.div>
+          </div>
         </div>
 
-        {/* ── Bottom: Animated Number Counters & Stats ── */}
-        <div className="mt-12">
+        {/* ── Bottom Section: Animated Numbers Bar ── */}
+        <div className="mt-16">
           <AnimatedStats />
         </div>
       </div>

@@ -73,15 +73,15 @@ export function WhyUs() {
     <div className="min-h-screen bg-background text-foreground">
       <Navbar />
       <main id="main-content" className="pt-32 pb-24">
-        {/* ── Hero ── */}
-        <section className="py-16 relative overflow-hidden bg-gradient-to-b from-background via-muted/30 to-background text-center">
+        {/* ── Hero with Professional Heading Sizing ── */}
+        <section className="py-12 relative overflow-hidden bg-gradient-to-b from-background via-muted/30 to-background text-center">
           <div className="container mx-auto px-4 max-w-3xl">
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent border border-border mb-4 shadow-sm"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent border border-border mb-3 shadow-sm"
             >
-              <Sparkles className="w-4 h-4 text-[#E6398B]" />
+              <Sparkles className="w-3.5 h-3.5 text-[#E6398B]" />
               <span className="text-xs font-bold uppercase tracking-wider text-[#5B2A86] dark:text-[#F0ABFC]">
                 Why Partner With Graphene
               </span>
@@ -91,7 +91,7 @@ export function WhyUs() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold text-foreground"
+              className="font-display text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-foreground"
             >
               Pakistan's Most Trusted Smart Classroom Partner
             </motion.h1>
@@ -100,54 +100,55 @@ export function WhyUs() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-muted-foreground mt-4 text-base sm:text-lg leading-relaxed"
+              className="text-muted-foreground mt-3 text-sm sm:text-base max-w-xl mx-auto leading-relaxed"
             >
               Discover why over 150 forward-thinking educational institutions entrust Graphene Communication to build their interactive future.
             </motion.p>
           </div>
         </section>
 
-        {/* ── Reasons Grid ── */}
-        <section className="py-12 container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        {/* ── Value Propositions Grid ── */}
+        <section className="container mx-auto px-4 mt-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {reasons.map((reason, index) => {
               const Icon = reason.icon;
               return (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 25 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  whileHover={{ y: -6 }}
-                  className="p-8 rounded-2xl bg-card border border-border hover:border-[#E6398B]/50 hover:shadow-strong transition-all duration-300 flex flex-col justify-between group"
+                  transition={{ delay: index * 0.08 }}
+                  whileHover={{ y: -5 }}
+                  className="rounded-2xl bg-card border border-border hover:border-[#E6398B]/50 p-6 sm:p-7 shadow-soft hover:shadow-strong transition-all flex flex-col justify-between group"
                 >
                   <div>
-                    <div className="flex items-center justify-between mb-6">
-                      <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${reason.gradient} flex items-center justify-center text-white shadow-md group-hover:scale-110 transition-transform duration-300`}>
-                        <Icon className="w-7 h-7" />
+                    {/* Stat & Icon Header */}
+                    <div className="flex items-center justify-between mb-5">
+                      <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${reason.gradient} flex items-center justify-center text-white shadow-soft group-hover:scale-105 transition-transform`}>
+                        <Icon className="w-6 h-6" />
                       </div>
                       <div className="text-right">
-                        <span className="font-display text-3xl font-extrabold text-[#E6398B]">
+                        <div className="font-display font-bold text-xl sm:text-2xl text-foreground">
                           {reason.stat}
-                        </span>
-                        <p className="text-xs text-muted-foreground font-semibold">
+                        </div>
+                        <div className="text-[10px] uppercase font-mono text-muted-foreground tracking-wider font-semibold">
                           {reason.statLabel}
-                        </p>
+                        </div>
                       </div>
                     </div>
 
-                    <h3 className="font-display font-bold text-xl text-foreground group-hover:text-primary transition-colors">
+                    <h3 className="font-display font-bold text-base sm:text-lg text-foreground group-hover:text-primary transition-colors">
                       {reason.title}
                     </h3>
-                    <p className="text-sm text-muted-foreground mt-3 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-muted-foreground mt-2 leading-relaxed">
                       {reason.description}
                     </p>
                   </div>
 
-                  <div className="mt-6 pt-4 border-t border-border flex items-center gap-2 text-xs font-semibold text-[#5B2A86] dark:text-[#F0ABFC]">
-                    <CheckCircle2 className="w-4 h-4 text-[#E6398B]" />
-                    <span>Guaranteed Excellence</span>
+                  <div className="mt-5 pt-4 border-t border-border flex items-center text-xs font-semibold text-[#5B2A86] dark:text-[#F0ABFC] group-hover:text-[#E6398B] transition-colors">
+                    <CheckCircle2 className="w-3.5 h-3.5 mr-1.5 text-[#E6398B]" />
+                    <span>Guaranteed Quality Standard</span>
                   </div>
                 </motion.div>
               );
@@ -155,21 +156,26 @@ export function WhyUs() {
           </div>
         </section>
 
-        {/* ── Call To Action ── */}
-        <section className="mt-16 container mx-auto px-4 text-center">
-          <div className="max-w-4xl mx-auto p-10 rounded-3xl bg-gradient-to-br from-[#5B2A86] to-[#E6398B] text-white shadow-strong">
-            <h2 className="font-display text-3xl sm:text-4xl font-extrabold mb-4">
-              Bring 21st-Century Learning to Your Campus
+        {/* ── Bottom CTA ── */}
+        <section className="container mx-auto px-4 mt-16 text-center">
+          <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-card via-muted/40 to-card border border-border max-w-4xl mx-auto shadow-soft">
+            <h2 className="font-display text-xl sm:text-2xl font-bold text-foreground">
+              Ready to Upgrade Your Institution's Learning Environment?
             </h2>
-            <p className="text-white/90 text-sm sm:text-base max-w-xl mx-auto mb-8">
-              Speak with our solution architects today to design a smart classroom package suited to your curriculum and budget.
+            <p className="text-xs sm:text-sm text-muted-foreground mt-2 max-w-lg mx-auto">
+              Our Lahore team is available for on-site consultations, feasibility studies, and live hardware demonstrations.
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-4">
+            <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
               <Link to="/contact">
-                <GlassButton variant="glass" showArrow className="px-8 py-3.5 bg-white text-[#5B2A86] hover:bg-white/90">
+                <GlassButton variant="primary" showArrow className="py-3 px-6 text-xs sm:text-sm">
                   Request Free Site Survey
                 </GlassButton>
               </Link>
+              <a href="mailto:mohsen.alam@yellow-wombat-705667.hostingersite.com">
+                <button className="px-5 py-3 rounded-xl border border-border text-xs sm:text-sm font-semibold text-foreground hover:bg-muted transition-colors cursor-pointer">
+                  Email Quotation Request
+                </button>
+              </a>
             </div>
           </div>
         </section>

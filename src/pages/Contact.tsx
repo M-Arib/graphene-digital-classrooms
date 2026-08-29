@@ -30,8 +30,8 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email Us",
-    details: ["info@graphenecommunication.com"],
-    href: "mailto:info@graphenecommunication.com",
+    details: ["mohsen.alam@yellow-wombat-705667.hostingersite.com"],
+    href: "mailto:mohsen.alam@yellow-wombat-705667.hostingersite.com",
   },
   {
     icon: Clock,

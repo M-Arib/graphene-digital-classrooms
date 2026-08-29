@@ -149,10 +149,10 @@ export function Footer() {
               <li className="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/10 hover:border-[#E6398B]/40 transition-colors">
                 <Mail className="w-5 h-5 text-[#E6398B] flex-shrink-0" />
                 <a
-                  href="mailto:info@graphenecommunication.com"
-                  className="text-white/80 hover:text-white text-xs sm:text-sm transition-colors"
+                  href="mailto:mohsen.alam@yellow-wombat-705667.hostingersite.com"
+                  className="text-white/80 hover:text-white text-xs sm:text-sm transition-colors break-all"
                 >
-                  info@graphenecommunication.com
+                  mohsen.alam@yellow-wombat-705667.hostingersite.com
                 </a>
               </li>
             </ul>
