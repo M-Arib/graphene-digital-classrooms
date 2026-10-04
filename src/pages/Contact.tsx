@@ -58,7 +58,7 @@ const Contact = () => {
 
   const composeMessage = () =>
     [
-      "New enquiry from graphenecommunication.com",
+      "New enquiry from graphene.com.pk",
       "",
       `Name: ${formData.name}`,
       `Email: ${formData.email}`,

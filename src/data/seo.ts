@@ -3,7 +3,7 @@
 // and at build time (vite.config.ts) to prerender per-route HTML files and sitemap.xml.
 // Keep this file free of "@/..." imports so the Vite config can load it.
 
-export const SITE_URL = "https://graphenecommunication.com";
+export const SITE_URL = "https://graphene.com.pk";
 export const SITE_NAME = "Graphene Communication";
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.jpg`;
 

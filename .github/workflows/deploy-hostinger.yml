@@ -1,6 +1,6 @@
 # Builds the site and uploads it to Hostinger over FTP on every push to main.
 # Required repository secrets: FTP_SERVER, FTP_USERNAME, FTP_PASSWORD
-# Optional repository variable: FTP_SERVER_DIR (defaults to /public_html/)
+# Optional repository variable: FTP_SERVER_DIR (defaults to /domains/graphene.com.pk/public_html/)
 name: Deploy to Hostinger
 
 on:
@@ -33,4 +33,4 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/
-          server-dir: ${{ vars.FTP_SERVER_DIR || '/public_html/' }}
+          server-dir: ${{ vars.FTP_SERVER_DIR || '/domains/graphene.com.pk/public_html/' }}

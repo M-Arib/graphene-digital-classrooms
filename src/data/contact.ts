@@ -4,7 +4,7 @@ export const CONTACT = {
   phoneHref: "tel:+923244017722",
   whatsappNumber: "923244017722",
   whatsappHref: "https://wa.me/923244017722",
-  email: "info@graphenecommunication.com",
+  email: "info@graphene.com.pk",
   addressLine1: "328/14 W Sector, DHA Phase 3",
   addressLine2: "Lahore, Pakistan",
   mapsQuery: "328/14 W Sector, DHA Phase 3, Lahore, Pakistan",
