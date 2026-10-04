@@ -5,7 +5,9 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@/hooks/useTheme";
 import { FloatingButtons } from "@/components/FloatingButtons";
+import { RouteEffects } from "@/components/RouteEffects";
 import { lazy, Suspense } from "react";
+import { MotionConfig } from "framer-motion";
 
 const Index = lazy(() => import("./pages/Index"));
 const About = lazy(() => import("./pages/About"));
@@ -28,33 +30,34 @@ const PageLoader = () => (
   </div>
 );
 
-
-
 const App = () => (
-  <ThemeProvider>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <FloatingButtons />
-      <BrowserRouter>
-        <Suspense fallback={<PageLoader />}>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/vision" element={<Vision />} />
-            <Route path="/products" element={<Products />} />
-            <Route path="/smart-classrooms" element={<SmartClassrooms />} />
-            <Route path="/why-us" element={<WhyUs />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/privacy" element={<Privacy />} />
-            <Route path="/terms" element={<Terms />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Suspense>
-      </BrowserRouter>
-    </TooltipProvider>
-  </ThemeProvider>
+  <MotionConfig reducedMotion="user">
+    <ThemeProvider>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <FloatingButtons />
+        <BrowserRouter>
+          <RouteEffects />
+          <Suspense fallback={<PageLoader />}>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/vision" element={<Vision />} />
+              <Route path="/products" element={<Products />} />
+              <Route path="/smart-classrooms" element={<SmartClassrooms />} />
+              <Route path="/why-us" element={<WhyUs />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/terms" element={<Terms />} />
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
+        </BrowserRouter>
+      </TooltipProvider>
+    </ThemeProvider>
+  </MotionConfig>
 );
 
 export default App;

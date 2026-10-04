@@ -651,7 +651,7 @@ export function Products() {
                             className="w-full h-32 rounded-xl bg-card p-2 flex items-center justify-center mb-3 cursor-zoom-in"
                             title="Click for closeup"
                           >
-                            <img src={product.image} alt={product.name} className="max-h-full object-contain" />
+                            <img src={product.image} alt={product.name} loading="lazy" decoding="async" className="max-h-full object-contain" />
                           </div>
                         )}
                         <span className="text-[10px] font-mono uppercase font-bold px-2 py-0.5 rounded bg-accent text-[#5B2A86] dark:text-[#F0ABFC]">

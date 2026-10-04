@@ -1,4 +1,6 @@
-import { Handshake, Award } from "lucide-react";
+import { Handshake, Award, BadgeCheck, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import ttsLogo from "@/assets/tts-logo.png";
 
 // ─── Inline SVG Logos ───────────────────────────────────────────────────────
 
@@ -31,13 +33,20 @@ function CiscoLogo({ className }: { className?: string }) {
 }
 
 function XiaomiLogo({ className }: { className?: string }) {
+  // Official Xiaomi "mi" mark: orange squircle with the white "mi" glyph
   return (
-    <svg className={className} aria-hidden="true" viewBox="0 0 112 112" version="1.1">
-      <g fill="#ff6900">
-        <path d="M100.326,11.702 C89.76,1.176 74.566,0 56,0 C37.41,0 22.194,1.19 11.632,11.744 C1.072,22.294 0,37.486 0,56.054 C0,74.626 1.072,89.822 11.636,100.376 C22.198,110.932 37.412,112 56,112 C74.588,112 89.8,110.932 100.362,100.376 C110.926,89.82 112,74.626 112,56.054 C112,37.462 110.914,22.254 100.326,11.702 L100.326,11.702 Z" />
-      </g>
-      <g fill="#ffffff">
-        <path d="M57.8054292,26.743366 L57.931608,26.8782679 L81.3680343,53.7784796 C82.7703315,55.3874915 81.6885448,57.872013 79.5991142,57.9952335 L79.4364262,58 L76,58 L76,71.3345882 C76,75.0164706 72.9809524,78 69.2552381,78 L42.7447619,78 C39.0190476,78 36,75.0164706 36,71.3345882 L36,58 L32.5635738,58 C30.4234399,58 29.2530924,55.5557037 30.5289714,53.903922 L30.6319657,53.7784796 L54.068392,26.8782679 C55.0457355,25.754085 56.766743,25.7091177 57.8054292,26.743366 Z M200.6006,34.56 C200.9866,34.56 201.3066,34.87 201.3066,35.252 L201.3066,76.754 C201.3066,77.13 200.9866,77.442 200.6006,77.442 L191.5066,77.442 C191.1166,77.442 190.8006,77.13 190.8006,76.754 L190.8006,35.252 C190.8006,34.87 191.1166,34.56 191.5066,34.56 L200.6006,34.56 Z M161.1406,34.56 C168.0006,34.56 175.1726,34.874 178.7086,38.414 C182.188558,41.897875 182.564028,48.8333125 182.578162,55.5684076 L182.5786,76.754 C182.5786,77.13 182.2626,77.442 181.8726,77.442 L172.7826,77.442 C172.3926,77.442 172.0746,77.13 172.0746,76.754 L172.0746,55.204 C172.0646,51.442 171.8486,47.576 169.9086,45.63 C168.2386,43.956 165.1226,43.572 161.8826,43.492 L145.4026,43.492 C145.0146,43.492 144.6986,43.804 144.6986,44.18 L144.6986,76.754 C144.6986,77.13 144.3786,77.442 143.9906,77.442 L134.8926,77.442 C134.5046,77.442 134.1906,77.13 134.1906,76.754 L134.1906,35.252 C134.1906,34.87 134.5046,34.56 134.8926,34.56 L161.1406,34.56 Z M163.1766,51.088 C163.5626,51.088 163.8766,51.398 163.8766,51.776 L163.8766,76.754 C163.8766,77.13 163.5626,77.442 163.1766,77.442 L153.6246,77.442 C153.2326,77.442 152.9166,77.13 152.9166,76.754 L152.9166,51.776 C152.9166,51.398 153.2326,51.088 153.6246,51.088 L163.1766,51.088 Z M59.2999404,54 L52.6952892,54 C51.2597451,54 50.0896172,55.1942589 50.0049103,56.6981405 L50,56.872989 L50,63.127011 C50,64.6534011 51.1169596,65.9041929 52.530874,65.9947504 L52.6952892,66 L59.2999404,66 C60.7354844,66 61.910036,64.8057411 61.9950706,63.3018595 L62,63.127011 L62,56.872989 C62,55.2878916 60.7906977,54 59.2999404,54 Z" />
+    <svg className={className} viewBox="0 0 112 112" role="img" aria-label="Xiaomi">
+      <path
+        fill="#FF6900"
+        d="M100.326,11.702 C89.76,1.176 74.566,0 56,0 C37.41,0 22.194,1.19 11.632,11.744 C1.072,22.294 0,37.486 0,56.054 C0,74.626 1.072,89.822 11.636,100.376 C22.198,110.932 37.412,112 56,112 C74.588,112 89.8,110.932 100.362,100.376 C110.926,89.82 112,74.626 112,56.054 C112,37.462 110.914,22.254 100.326,11.702 Z"
+      />
+      <g fill="#FFFFFF">
+        {/* "m": arch with outer stems */}
+        <path d="M27 77 V35 H56 C64.3 35 69 39.7 69 48 V77 H59.5 V49 C59.5 46 58 44.5 55 44.5 H36.5 V77 Z" />
+        {/* "m": middle stem */}
+        <rect x="43.25" y="51" width="9.5" height="26" rx="0.5" />
+        {/* "i" */}
+        <rect x="75.5" y="35" width="9.5" height="42" rx="0.5" />
       </g>
     </svg>
   );
@@ -66,6 +75,13 @@ interface BrandItem {
 
 const brands: BrandItem[] = [
   {
+    name: "TTS",
+    type: "img",
+    logoUrl: ttsLogo,
+    website: "https://www.tts-group.co.uk",
+    imgClassName: "dark:bg-white dark:rounded-md dark:p-0.5",
+  },
+  {
     name: "InFocus",
     type: "img",
     logoUrl: "https://www.infocus.com/_nuxt/logo.-2GIhSCv.webp",
@@ -84,7 +100,7 @@ const brands: BrandItem[] = [
     website: "https://www.vivitek.com",
   },
   {
-    name: "Mi",
+    name: "Xiaomi",
     type: "svg",
     logo: XiaomiLogo,
     website: "https://www.mi.com/pk/",
@@ -225,6 +241,29 @@ export function BrandsPartnersSection() {
               We bring you products from the most trusted names in education
               technology and display solutions.
             </p>
+          </div>
+
+          {/* Official distributorship highlight */}
+          <div className="max-w-3xl mx-auto mb-10 rounded-2xl border border-[#E6398B]/30 bg-gradient-to-r from-[#5B2A86]/10 via-[#E6398B]/10 to-[#F0ABFC]/10 p-5 sm:p-6 flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#5B2A86] to-[#E6398B] flex items-center justify-center flex-shrink-0 shadow-glow-pink">
+              <BadgeCheck className="w-6 h-6 text-white" />
+            </div>
+            <div className="flex-1">
+              <p className="font-display font-bold text-foreground text-lg">
+                Official Distributor of TTS in Pakistan
+              </p>
+              <p className="text-muted-foreground text-sm mt-1">
+                Genuine TTS STEM and early-years resources, including the Bee-Bot and Pro-Bot coding
+                robots, with local warranty, training and support.
+              </p>
+            </div>
+            <Link
+              to="/products"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:gap-2.5 transition-all flex-shrink-0"
+            >
+              View TTS products
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
 
           <LogoMarquee items={brands} />

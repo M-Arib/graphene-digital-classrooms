@@ -9,18 +9,19 @@ import {
   Tv,
 } from "lucide-react";
 import tabletsImg from "@/assets/tablets-learning.webp";
-import beebotImg from "@/assets/beebot.jpg";
-import lightproImg from "@/assets/lightpro.png";
-import quantumLaserImg from "@/assets/quantum-laser.png";
-import quantumLedImg from "@/assets/quantum-led.jpg";
-import screenplayImg from "@/assets/screenplay.png";
-import dvledDirectViewImg from "@/assets/dvled-directview.png";
-import dvledPosterImg from "@/assets/dvled-poster.png";
-import dvledFoldableImg from "@/assets/dvled-foldable.png";
-import jtouchPanelImg from "@/assets/jtouch-panel.png";
-import chargingCartImg from "@/assets/charging-cart.png";
-import visualizerImg from "@/assets/visualizer.png";
-import audioSystemImg from "@/assets/audio-system.jpg";
+import beebotImg from "@/assets/beebot.webp";
+import probotImg from "@/assets/probot.webp";
+import lightproImg from "@/assets/lightpro.webp";
+import quantumLaserImg from "@/assets/quantum-laser.webp";
+import quantumLedImg from "@/assets/quantum-led.webp";
+import screenplayImg from "@/assets/screenplay.webp";
+import dvledDirectViewImg from "@/assets/dvled-directview.webp";
+import dvledPosterImg from "@/assets/dvled-poster.webp";
+import dvledFoldableImg from "@/assets/dvled-foldable.webp";
+import jtouchPanelImg from "@/assets/jtouch-panel.webp";
+import chargingCartImg from "@/assets/charging-cart.webp";
+import visualizerImg from "@/assets/visualizer.webp";
+import audioSystemImg from "@/assets/audio-system.webp";
 
 export type ProductCategory = "projectors" | "displays" | "interactive" | "edtech";
 
@@ -62,7 +63,7 @@ export const productCategories: { id: ProductCategory; label: string; descriptio
   {
     id: "edtech",
     label: "EdTech & Innovation Lab",
-    description: "STEM robotics, Bee-Bot early coding, student tablets, charging storage carts, 4K visualizers, and classroom AV.",
+    description: "TTS STEM robotics (official distributor in Pakistan), Bee-Bot & Pro-Bot coding robots, student tablets, charging storage carts, 4K visualizers, and classroom AV.",
     icon: Bot,
   },
 ];
@@ -308,12 +309,12 @@ export const products: Product[] = [
     id: "bee-bot",
     category: "edtech",
     categoryLabel: "EdTech & Innovation Lab",
-    name: "Bee-Bot Programmable Floor Robot",
+    name: "TTS Bee-Bot Programmable Floor Robot",
     type: "Early Childhood Coding & STEM",
     description: "The world's leading programmable floor robot for early childhood and primary STEM education. Introduces directional language, sequencing, algorithms, and computational thinking.",
     icon: Bot,
     image: beebotImg,
-    badge: "STEM",
+    badge: "Official TTS Distributor",
     featured: true,
     features: [
       "Precise 15cm Steps and 90-Degree Turns",
@@ -322,10 +323,35 @@ export const products: Product[] = [
       "Docking Station Rechargeable USB Battery Hub",
     ],
     specs: [
+      { label: "Brand", value: "TTS — official distributor in Pakistan" },
       { label: "Target Age", value: "Ages 4 to 9 (Early Years & Primary)" },
       { label: "Controls", value: "Tactile directional top buttons" },
       { label: "Battery", value: "Rechargeable Lithium Polymer" },
       { label: "Accessories", value: "Alphabet, Math & World Activity Mats" },
+    ],
+  },
+  {
+    id: "pro-bot",
+    category: "edtech",
+    categoryLabel: "EdTech & Innovation Lab",
+    name: "TTS Pro-Bot Programmable Robot Car",
+    type: "Primary Coding, Geometry & Sensors",
+    description: "The next step after Bee-Bot: a car-shaped floor robot programmed directly from its on-board keypad and LCD screen. Students write procedures, draw shapes with a pen and explore angles, measurement and sensors.",
+    icon: Bot,
+    image: probotImg,
+    badge: "Official TTS Distributor",
+    featured: false,
+    features: [
+      "On-Board Keypad & LCD Screen — No Computer Needed",
+      "Pen Holder for Drawing Shapes, Angles & Patterns",
+      "Built-in Light, Sound & Touch (Bump) Sensors",
+      "Procedures & Repeat Loops for Real Algorithmic Thinking",
+    ],
+    specs: [
+      { label: "Brand", value: "TTS — official distributor in Pakistan" },
+      { label: "Target Age", value: "Upper Primary (after Bee-Bot)" },
+      { label: "Programming", value: "Logo-style commands on the robot" },
+      { label: "Battery", value: "Rechargeable" },
     ],
   },
   {

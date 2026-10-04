@@ -35,7 +35,9 @@ export function ParticleNetwork() {
     };
 
     const colors = ["#5B2A86", "#8A3BB8", "#E6398B", "#F0ABFC", "#C084FC"];
-    const particleCount = 220;
+    // Fewer ambient particles on small screens (the "G" logo itself uses 140)
+    const particleCount = width < 768 ? 160 : 220;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const particles: Particle[] = [];
 
     // Helper: generate points for a futuristic stylized "G" logo
@@ -116,7 +118,7 @@ export function ParticleNetwork() {
     };
 
     window.addEventListener("resize", handleResize);
-    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
     window.addEventListener("mouseleave", handleMouseLeave);
 
     const render = () => {
@@ -128,6 +130,7 @@ export function ParticleNetwork() {
 
       // Draw particle connections
       const maxDistance = 110;
+      const maxDistanceSq = maxDistance * maxDistance;
 
       for (let i = 0; i < particles.length; i++) {
         const p1 = particles[i];
@@ -177,13 +180,15 @@ export function ParticleNetwork() {
           ctx.stroke();
         }
 
-        // Draw particle node with glow
+        // Draw particle node with a soft halo (much cheaper than canvas shadowBlur)
+        ctx.fillStyle = p1.color;
+        ctx.globalAlpha = p1.alpha * 0.18;
+        ctx.beginPath();
+        ctx.arc(p1.x, p1.y, p1.radius * 3, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.globalAlpha = p1.alpha;
         ctx.beginPath();
         ctx.arc(p1.x, p1.y, p1.radius, 0, Math.PI * 2);
-        ctx.fillStyle = p1.color;
-        ctx.globalAlpha = p1.alpha;
-        ctx.shadowColor = p1.color;
-        ctx.shadowBlur = 10;
         ctx.fill();
 
         // Connect nearby particles
@@ -191,16 +196,16 @@ export function ParticleNetwork() {
           const p2 = particles[j];
           const dx = p1.x - p2.x;
           const dy = p1.y - p2.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
+          const distSq = dx * dx + dy * dy;
 
-          if (dist < maxDistance) {
+          if (distSq < maxDistanceSq) {
+            const dist = Math.sqrt(distSq);
             const alpha = (1 - dist / maxDistance) * 0.22;
             ctx.beginPath();
             ctx.moveTo(p1.x, p1.y);
             ctx.lineTo(p2.x, p2.y);
             ctx.strokeStyle = p1.color;
             ctx.globalAlpha = alpha;
-            ctx.shadowBlur = 0;
             ctx.lineWidth = 0.75;
             ctx.stroke();
           }
@@ -208,14 +213,42 @@ export function ParticleNetwork() {
       }
 
       ctx.globalAlpha = 1;
-      ctx.shadowBlur = 0;
-      animationFrameId = requestAnimationFrame(render);
+      if (running) animationFrameId = requestAnimationFrame(render);
     };
 
-    render();
+    // Only animate while the hero is on screen and the tab is visible
+    let running = false;
+    let inView = true;
+    const updateRunning = () => {
+      const shouldRun = inView && !document.hidden && !prefersReducedMotion;
+      if (shouldRun && !running) {
+        running = true;
+        animationFrameId = requestAnimationFrame(render);
+      } else if (!shouldRun && running) {
+        running = false;
+        cancelAnimationFrame(animationFrameId);
+      }
+    };
+    const observer = new IntersectionObserver(([entry]) => {
+      inView = entry.isIntersecting;
+      updateRunning();
+    });
+    observer.observe(canvas);
+    document.addEventListener("visibilitychange", updateRunning);
+
+    // Reduced motion: draw a single static frame
+    if (prefersReducedMotion) {
+      morphTime = DISSOLVE_FRAMES;
+      render();
+    } else {
+      updateRunning();
+    }
 
     return () => {
+      running = false;
       cancelAnimationFrame(animationFrameId);
+      observer.disconnect();
+      document.removeEventListener("visibilitychange", updateRunning);
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("mouseleave", handleMouseLeave);
@@ -225,8 +258,8 @@ export function ParticleNetwork() {
   return (
     <canvas
       ref={canvasRef}
+      aria-hidden="true"
       className="absolute inset-0 pointer-events-auto z-0 opacity-80 dark:opacity-90 w-full h-full"
-      style={{ willChange: "transform" }}
     />
   );
 }

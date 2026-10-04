@@ -15,6 +15,11 @@ export const faqs = [
       "We supply interactive smart boards, LED/LCD display panels, educational tablets, audio-visual systems, wireless presentation systems, and smart lighting solutions — everything needed for a complete smart learning environment.",
   },
   {
+    question: "Are you an official TTS distributor in Pakistan?",
+    answer:
+      "Yes. Graphene Communication is the official distributor of TTS in Pakistan. We supply genuine TTS STEM and early-years resources, including the Bee-Bot and Pro-Bot coding robots, with local warranty, teacher training and after-sales support.",
+  },
+  {
     question: "Can you provide solutions for universities and colleges?",
     answer:
       "Yes. We work with institutions of all sizes — from primary schools to universities. We design custom solutions tailored to lecture halls, labs, seminar rooms, and administrative spaces.",

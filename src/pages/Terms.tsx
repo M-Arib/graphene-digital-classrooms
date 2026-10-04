@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { CONTACT } from "@/data/contact";
 
 const Terms = () => {
   return (
@@ -92,10 +93,10 @@ const Terms = () => {
               <p className="text-muted-foreground leading-relaxed">
                 For any questions regarding these terms, please contact us at{" "}
                 <a
-                  href="mailto:mohsen.alam@yellow-wombat-705667.hostingersite.com"
+                  href={`mailto:${CONTACT.email}`}
                   className="text-primary hover:underline"
                 >
-                  mohsen.alam@yellow-wombat-705667.hostingersite.com
+                  {CONTACT.email}
                 </a>
                 .
               </p>

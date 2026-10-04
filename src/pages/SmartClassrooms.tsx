@@ -173,6 +173,8 @@ function InteractiveClassroomTour() {
         <img
           src={heroImage}
           alt="Virtual Classroom Simulator"
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover brightness-75"
         />
 

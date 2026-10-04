@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, MessageCircle, Heart, ArrowUpRight } from "lucide-react";
 import { Logo } from "@/components/Logo";
+import { CONTACT } from "@/data/contact";
 
 const footerLinks = {
   company: [
@@ -76,7 +77,7 @@ export function Footer() {
               <motion.a
                 whileHover={{ scale: 1.12, rotateY: 15 }}
                 whileTap={{ scale: 0.95 }}
-                href="mailto:info@graphenecommunication.com"
+                href={`mailto:${CONTACT.email}`}
                 className="w-11 h-11 rounded-xl bg-[#E6398B]/30 hover:bg-[#E6398B] border border-[#E6398B]/40 flex items-center justify-center text-white shadow-soft transition-colors duration-300"
                 aria-label="Email Us"
               >
@@ -149,10 +150,10 @@ export function Footer() {
               <li className="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/10 hover:border-[#E6398B]/40 transition-colors">
                 <Mail className="w-5 h-5 text-[#E6398B] flex-shrink-0" />
                 <a
-                  href="mailto:mohsen.alam@yellow-wombat-705667.hostingersite.com"
-                  className="text-white/80 hover:text-white text-xs sm:text-sm transition-colors break-all"
+                  href={`mailto:${CONTACT.email}`}
+                  className="min-w-0 text-white/80 hover:text-white text-xs sm:text-sm transition-colors [overflow-wrap:anywhere]"
                 >
-                  mohsen.alam@yellow-wombat-705667.hostingersite.com
+                  {CONTACT.email}
                 </a>
               </li>
             </ul>
