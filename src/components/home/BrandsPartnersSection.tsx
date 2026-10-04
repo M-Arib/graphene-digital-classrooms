@@ -1,4 +1,5 @@
-import { Handshake, Award } from "lucide-react";
+import { Handshake, Award, BadgeCheck, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 // ─── Inline SVG Logos ───────────────────────────────────────────────────────
 
@@ -72,6 +73,11 @@ interface BrandItem {
 }
 
 const brands: BrandItem[] = [
+  {
+    name: "TTS",
+    type: "text",
+    website: "https://www.tts-group.co.uk",
+  },
   {
     name: "InFocus",
     type: "img",
@@ -232,6 +238,29 @@ export function BrandsPartnersSection() {
               We bring you products from the most trusted names in education
               technology and display solutions.
             </p>
+          </div>
+
+          {/* Official distributorship highlight */}
+          <div className="max-w-3xl mx-auto mb-10 rounded-2xl border border-[#E6398B]/30 bg-gradient-to-r from-[#5B2A86]/10 via-[#E6398B]/10 to-[#F0ABFC]/10 p-5 sm:p-6 flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#5B2A86] to-[#E6398B] flex items-center justify-center flex-shrink-0 shadow-glow-pink">
+              <BadgeCheck className="w-6 h-6 text-white" />
+            </div>
+            <div className="flex-1">
+              <p className="font-display font-bold text-foreground text-lg">
+                Official Distributor of TTS in Pakistan
+              </p>
+              <p className="text-muted-foreground text-sm mt-1">
+                Genuine TTS STEM and early-years resources, including the Bee-Bot and Pro-Bot coding
+                robots, with local warranty, training and support.
+              </p>
+            </div>
+            <Link
+              to="/products"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:gap-2.5 transition-all flex-shrink-0"
+            >
+              View TTS products
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
 
           <LogoMarquee items={brands} />

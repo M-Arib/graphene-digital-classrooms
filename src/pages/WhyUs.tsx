@@ -54,7 +54,7 @@ const reasons = [
   {
     icon: TrendingUp,
     title: "Authorized Global Brand Distributor",
-    description: "Official authorized dealer of world-renowned brands including Cisco, ViewSonic, InFocus, Vivitek, and Xiaomi.",
+    description: "Official authorized dealer of world-renowned brands including TTS (official distributor in Pakistan), Cisco, ViewSonic, InFocus, Vivitek, and Xiaomi.",
     stat: "100%",
     statLabel: "Genuine Brands",
     gradient: "from-[#8A3BB8] to-[#F0ABFC]",

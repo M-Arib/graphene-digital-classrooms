@@ -29,7 +29,7 @@ export const pages: PageSeo[] = [
     path: "/products",
     title: "Smart Classroom Products – Interactive Displays, Projectors & STEM | Graphene",
     description:
-      "Browse interactive flat panels, laser projectors, direct-view LED walls, document visualizers, charging carts and STEM robotics for classrooms. Tender-ready with warranty and on-site support in Pakistan.",
+      "Browse interactive flat panels, laser projectors, direct-view LED walls, visualizers, charging carts and TTS Bee-Bot & Pro-Bot robots. Official TTS distributor in Pakistan, with warranty and on-site support.",
     priority: 0.9,
     changefreq: "weekly",
   },
