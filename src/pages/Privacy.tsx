@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { CONTACT } from "@/data/contact";
 
 const Privacy = () => {
   return (
@@ -81,10 +82,10 @@ const Privacy = () => {
                 If you have any questions about this Privacy Policy, please
                 contact us at{" "}
                 <a
-                  href="mailto:mohsen.alam@yellow-wombat-705667.hostingersite.com"
+                  href={`mailto:${CONTACT.email}`}
                   className="text-primary hover:underline"
                 >
-                  mohsen.alam@yellow-wombat-705667.hostingersite.com
+                  {CONTACT.email}
                 </a>{" "}
                 or call{" "}
                 <a

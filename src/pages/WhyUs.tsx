@@ -16,6 +16,7 @@ import {
   Users,
 } from "lucide-react";
 import { GlassButton } from "@/components/animations/GlassButton";
+import { CONTACT } from "@/data/contact";
 
 const reasons = [
   {
@@ -171,7 +172,7 @@ export function WhyUs() {
                   Request Free Site Survey
                 </GlassButton>
               </Link>
-              <a href="mailto:mohsen.alam@yellow-wombat-705667.hostingersite.com">
+              <a href={`mailto:${CONTACT.email}`}>
                 <button className="px-5 py-3 rounded-xl border border-border text-xs sm:text-sm font-semibold text-foreground hover:bg-muted transition-colors cursor-pointer">
                   Email Quotation Request
                 </button>

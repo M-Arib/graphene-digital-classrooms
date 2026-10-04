@@ -7,31 +7,32 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Mail, Phone, MapPin, Clock, Send, MessageCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { CONTACT, mapsEmbed, mapsLink } from "@/data/contact";
 
 const contactInfo = [
   {
     icon: MapPin,
     title: "Visit Us",
-    details: ["328/14 W Sector, DHA Phase 3", "Lahore, Pakistan"],
-    href: "https://maps.google.com/?q=DHA+Phase+3+Lahore+Pakistan",
+    details: [CONTACT.addressLine1, CONTACT.addressLine2],
+    href: mapsLink,
   },
   {
     icon: Phone,
     title: "Call Us",
-    details: ["0324-4017722"],
-    href: "tel:+923244017722",
+    details: [CONTACT.phoneDisplay],
+    href: CONTACT.phoneHref,
   },
   {
     icon: MessageCircle,
     title: "WhatsApp",
-    details: ["0324-4017722"],
-    href: "https://wa.me/923244017722",
+    details: [CONTACT.phoneDisplay],
+    href: CONTACT.whatsappHref,
   },
   {
     icon: Mail,
     title: "Email Us",
-    details: ["mohsen.alam@yellow-wombat-705667.hostingersite.com"],
-    href: "mailto:mohsen.alam@yellow-wombat-705667.hostingersite.com",
+    details: [CONTACT.email],
+    href: `mailto:${CONTACT.email}`,
   },
   {
     icon: Clock,
@@ -55,13 +56,38 @@ const Contact = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const composeMessage = () =>
+    [
+      "New enquiry from graphenecommunication.com",
+      "",
+      `Name: ${formData.name}`,
+      `Email: ${formData.email}`,
+      formData.phone ? `Phone: ${formData.phone}` : null,
+      formData.institution ? `Institution: ${formData.institution}` : null,
+      "",
+      formData.message,
+    ]
+      .filter((line) => line !== null)
+      .join("\n");
+
+  // The site has no mail server, so the enquiry is handed to WhatsApp (default) or the
+  // visitor's email app with everything pre-filled — nothing is silently lost.
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const via = ((e.nativeEvent as SubmitEvent).submitter as HTMLButtonElement | null)?.value;
+    const text = composeMessage();
+
+    if (via === "email") {
+      const subject = `Website enquiry — ${formData.institution || formData.name}`;
+      window.location.href = `mailto:${CONTACT.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
+    } else {
+      window.open(`${CONTACT.whatsappHref}?text=${encodeURIComponent(text)}`, "_blank", "noopener,noreferrer");
+    }
+
     toast({
-      title: "Message Sent! ✓",
-      description: "Thank you for contacting us. We'll get back to you within 24 hours.",
+      title: via === "email" ? "Opening your email app…" : "Opening WhatsApp…",
+      description: "Your message is pre-filled — just press send and we'll reply within 24 hours.",
     });
-    setFormData({ name: "", email: "", phone: "", institution: "", message: "" });
   };
 
   return (
@@ -71,7 +97,7 @@ const Contact = () => {
         {/* Hero */}
         <section className="pt-32 pb-20 bg-muted">
           <div className="container mx-auto px-4">
-            <div className="max-w-3xl">
+            <div className="max-w-3xl mx-auto text-center">
               <span className="text-primary font-semibold text-sm uppercase tracking-wider">
                 Contact Us
               </span>
@@ -91,17 +117,17 @@ const Contact = () => {
           <div className="container mx-auto px-4">
             <div className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center items-center">
               <a
-                href="tel:+923244017722"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-colors shadow-soft"
+                href={CONTACT.phoneHref}
+                className="w-full sm:w-auto justify-center inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-colors shadow-soft"
               >
                 <Phone className="w-5 h-5" />
-                Call: 0324-4017722
+                Call: {CONTACT.phoneDisplay}
               </a>
               <a
-                href="https://wa.me/923244017722"
+                href={CONTACT.whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-green-500 text-white font-semibold hover:bg-green-600 transition-colors shadow-soft"
+                className="w-full sm:w-auto justify-center inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-green-500 text-white font-semibold hover:bg-green-600 transition-colors shadow-soft"
               >
                 <MessageCircle className="w-5 h-5" />
                 WhatsApp Us
@@ -125,7 +151,7 @@ const Contact = () => {
                       <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center flex-shrink-0 group-hover:bg-primary/10 transition-colors">
                         <info.icon className="w-6 h-6 text-primary" />
                       </div>
-                      <div>
+                      <div className="min-w-0">
                         <h3 className="font-display font-semibold text-foreground mb-1">
                           {info.title}
                         </h3>
@@ -138,7 +164,7 @@ const Contact = () => {
                               rel={
                                 info.href.startsWith("http") ? "noopener noreferrer" : undefined
                               }
-                              className="text-muted-foreground text-sm block hover:text-primary transition-colors"
+                              className="text-muted-foreground text-sm block hover:text-primary transition-colors break-words [overflow-wrap:anywhere]"
                             >
                               {detail}
                             </a>
@@ -156,10 +182,13 @@ const Contact = () => {
 
               {/* Contact Form */}
               <div className="lg:col-span-2">
-                <div className="bg-card rounded-2xl p-8 shadow-soft border border-border">
+                <div className="bg-card rounded-2xl p-6 sm:p-8 shadow-soft border border-border">
                   <h2 className="font-display text-2xl font-bold text-foreground mb-6">
                     Send Us a Message
                   </h2>
+                  <p className="text-muted-foreground text-sm -mt-3 mb-6">
+                    Fill in your details and we'll open WhatsApp or your email app with the message ready to send.
+                  </p>
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid sm:grid-cols-2 gap-6">
                       <div className="space-y-2">
@@ -229,10 +258,21 @@ const Contact = () => {
                       />
                     </div>
 
-                    <Button type="submit" variant="default" size="lg" className="w-full sm:w-auto">
-                      Send Message
-                      <Send className="w-4 h-4" />
-                    </Button>
+                    <div className="flex flex-col sm:flex-row gap-3">
+                      <Button
+                        type="submit"
+                        value="whatsapp"
+                        size="lg"
+                        className="w-full sm:w-auto bg-green-500 text-white hover:bg-green-600"
+                      >
+                        <MessageCircle className="w-4 h-4" />
+                        Send via WhatsApp
+                      </Button>
+                      <Button type="submit" value="email" variant="outline" size="lg" className="w-full sm:w-auto">
+                        <Send className="w-4 h-4" />
+                        Send via Email
+                      </Button>
+                    </div>
                   </form>
                 </div>
               </div>
@@ -244,7 +284,7 @@ const Contact = () => {
         <section className="h-64 sm:h-80 md:h-[450px] bg-muted relative">
           <iframe
             title="Graphene Communication Location - DHA Phase 3, Lahore"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3402.7437498862!2d74.3898!3d31.4697!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391904b8f65e5e91%3A0x4f77b83e5e04b1f1!2sDHA+Phase+3%2C+Lahore%2C+Punjab%2C+Pakistan!5e0!3m2!1sen!2s!4v1699000000000!5m2!1sen!2s"
+            src={mapsEmbed}
             width="100%"
             height="100%"
             style={{ border: 0 }}
@@ -263,7 +303,7 @@ const Contact = () => {
                   Graphene Communication
                 </p>
                 <p className="text-muted-foreground text-xs">
-                  328/14 W Sector, DHA Phase 3, Lahore
+                  {CONTACT.addressLine1}, Lahore
                 </p>
               </div>
             </div>
