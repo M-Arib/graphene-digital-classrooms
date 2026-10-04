@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://graphenecommunication.com/sitemap.xml
+Sitemap: https://graphene.com.pk/sitemap.xml
