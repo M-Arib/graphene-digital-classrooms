@@ -1,5 +1,6 @@
 import { Handshake, Award, BadgeCheck, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import ttsLogo from "@/assets/tts-logo.png";
 
 // ─── Inline SVG Logos ───────────────────────────────────────────────────────
 
@@ -75,8 +76,10 @@ interface BrandItem {
 const brands: BrandItem[] = [
   {
     name: "TTS",
-    type: "text",
+    type: "img",
+    logoUrl: ttsLogo,
     website: "https://www.tts-group.co.uk",
+    imgClassName: "dark:bg-white dark:rounded-md dark:p-0.5",
   },
   {
     name: "InFocus",
