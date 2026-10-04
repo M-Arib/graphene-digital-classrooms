@@ -9,18 +9,18 @@ import {
   Tv,
 } from "lucide-react";
 import tabletsImg from "@/assets/tablets-learning.webp";
-import beebotImg from "@/assets/beebot.jpg";
-import lightproImg from "@/assets/lightpro.png";
-import quantumLaserImg from "@/assets/quantum-laser.png";
-import quantumLedImg from "@/assets/quantum-led.jpg";
-import screenplayImg from "@/assets/screenplay.png";
-import dvledDirectViewImg from "@/assets/dvled-directview.png";
-import dvledPosterImg from "@/assets/dvled-poster.png";
-import dvledFoldableImg from "@/assets/dvled-foldable.png";
-import jtouchPanelImg from "@/assets/jtouch-panel.png";
-import chargingCartImg from "@/assets/charging-cart.png";
-import visualizerImg from "@/assets/visualizer.png";
-import audioSystemImg from "@/assets/audio-system.jpg";
+import beebotImg from "@/assets/beebot.webp";
+import lightproImg from "@/assets/lightpro.webp";
+import quantumLaserImg from "@/assets/quantum-laser.webp";
+import quantumLedImg from "@/assets/quantum-led.webp";
+import screenplayImg from "@/assets/screenplay.webp";
+import dvledDirectViewImg from "@/assets/dvled-directview.webp";
+import dvledPosterImg from "@/assets/dvled-poster.webp";
+import dvledFoldableImg from "@/assets/dvled-foldable.webp";
+import jtouchPanelImg from "@/assets/jtouch-panel.webp";
+import chargingCartImg from "@/assets/charging-cart.webp";
+import visualizerImg from "@/assets/visualizer.webp";
+import audioSystemImg from "@/assets/audio-system.webp";
 
 export type ProductCategory = "projectors" | "displays" | "interactive" | "edtech";
 

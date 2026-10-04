@@ -28,7 +28,7 @@ export function HeroSection() {
             <motion.div
               initial={{ opacity: 0, scale: 0.85, y: -20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+              transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
               className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-card/80 dark:bg-[#0F0F1A]/80 backdrop-blur-xl border border-[#E6398B]/30 shadow-glow-pink mb-6"
             >
               <span className="relative flex h-2.5 w-2.5">
@@ -44,7 +44,7 @@ export function HeroSection() {
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
               className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[64px] font-extrabold tracking-tight leading-[1.15] text-foreground mb-6"
             >
               <span className="inline-block">
@@ -67,7 +67,7 @@ export function HeroSection() {
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
               className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-2xl mb-8 leading-relaxed font-normal"
             >
               Since 2014, Graphene Communication has empowered <strong className="text-foreground font-semibold">150+ schools</strong> and <strong className="text-foreground font-semibold">100,000+ students</strong> across Pakistan with 4K interactive touch panels, laser projectors, STEM robotics, and turnkey digital learning spaces.
@@ -77,7 +77,7 @@ export function HeroSection() {
             <motion.div
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
               className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto"
             >
               <Link to="/contact">
@@ -96,7 +96,7 @@ export function HeroSection() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 1.2 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
               className="flex items-center gap-6 mt-8 pt-6 border-t border-border/50 text-xs text-muted-foreground"
             >
               <div className="flex items-center gap-1.5">
